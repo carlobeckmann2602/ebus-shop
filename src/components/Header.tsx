@@ -1,10 +1,26 @@
-export default function Header() {
+import { CartItem } from "../commons.ts";
+
+type HeaderProps = {
+  cartItems: CartItem[];
+};
+
+export default function Header(props: HeaderProps) {
+  function sumUpCart() {
+    let sum = 0.0;
+    props.cartItems.forEach((item) => {
+      sum += parseFloat(item.price) * item.quantity;
+    });
+    return sum.toString();
+  }
+
   return (
     <div className="navbar bg-base-100 shadow-lg">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">zurück</a>
+        <a className="btn btn-ghost text-xl">zurücksetzen</a>
       </div>
-      <div className="flex-1">E-Bus Shop</div>
+      <div className="flex-1">
+        <a href="/">E-Bus Shop</a>
+      </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -23,18 +39,49 @@ export default function Header() {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              <span className="badge badge-sm indicator-item">8</span>
+              <span className="badge badge-sm indicator-item">
+                {props.cartItems.length}
+              </span>
             </div>
           </div>
           <div
             tabIndex={0}
-            className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+            className="mt-3 z-[1] card card-compact dropdown-content w-75 bg-base-100 shadow"
           >
             <div className="card-body">
-              <span className="font-bold text-lg">8 Items</span>
-              <span className="text-info">Subtotal: $999</span>
+              <span className="font-bold text-lg">
+                {props.cartItems.length} Produkte
+              </span>
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Anzahl</th>
+                    <th>Einzelpreis</th>
+                    <th>Gesamtpreis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {props.cartItems.map((item) => {
+                    return (
+                      <tr key={"cart-item-" + Date.now()}>
+                        <td>{item.name}</td>
+                        <td>{item.quantity}</td>
+                        <td>{item.price}</td>
+                        <td>{parseFloat(item.price) * item.quantity}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              <div className="px-4 flex justify-between">
+                <span className="text-info">Summe</span>
+                <span>{sumUpCart()}</span>
+              </div>
               <div className="card-actions">
-                <button className="btn btn-primary btn-block">View cart</button>
+                <a className="btn btn-primary btn-block">
+                  Einkaufswagen ansehen
+                </a>
               </div>
             </div>
           </div>
