@@ -1,3 +1,9 @@
+import Layout from "./_layout.tsx";
+
 export default function Shop() {
-  return <h1>Shop</h1>;
+  return (
+    <Layout>
+      <h1>Shop</h1>
+    </Layout>
+  );
 }
