@@ -32,9 +32,24 @@ function App() {
             />
           }
         />
-        <Route path="overview" element={<Overview />} />
-        <Route path="checkout" element={<Checkout />} />
-        <Route path="cart" element={<Cart />} />
+        <Route
+          path="overview"
+          element={
+            <Overview cartItems={cartItems} removeFromCart={removeFromCart} />
+          }
+        />
+        <Route
+          path="checkout"
+          element={
+            <Checkout cartItems={cartItems} removeFromCart={removeFromCart} />
+          }
+        />
+        <Route
+          path="cart"
+          element={
+            <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
+          }
+        />
       </>,
     ),
   );

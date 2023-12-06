@@ -1,9 +1,15 @@
 import AllPayments from "../components/checkout/AllPayments.tsx";
 import Layout from "./_layout.tsx";
+import { CartItem } from "../commons.ts";
 
-export default function Checkout() {
+type CheckoutProps = {
+  cartItems: CartItem[];
+  removeFromCart: (product: CartItem) => void;
+};
+
+export default function Checkout(props: CheckoutProps) {
   return (
-    <Layout>
+    <Layout cartItems={props.cartItems} removeFromCart={props.removeFromCart}>
       <h1>Bezahlverfahren</h1>
       <AllPayments />
     </Layout>

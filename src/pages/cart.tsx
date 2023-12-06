@@ -1,8 +1,14 @@
 import Layout from "./_layout.tsx";
+import { CartItem } from "../commons.ts";
 
-export default function Cart() {
+type CartProps = {
+  cartItems: CartItem[];
+  removeFromCart: (product: CartItem) => void;
+};
+
+export default function Cart(props: CartProps) {
   return (
-    <Layout>
+    <Layout cartItems={props.cartItems} removeFromCart={props.removeFromCart}>
       <h1>Einkaufswagen</h1>
     </Layout>
   );
