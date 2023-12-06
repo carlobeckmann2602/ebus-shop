@@ -5,11 +5,12 @@ import { ALL_PRODUCTS, CartItem } from "../commons.ts";
 type ShopProps = {
   cartItems: CartItem[];
   addToCart: (product: CartItem) => void;
+  removeFromCart: (product: CartItem) => void;
 };
 
 export default function Shop(props: ShopProps) {
   return (
-    <Layout cartItems={props.cartItems}>
+    <Layout cartItems={props.cartItems} removeFromCart={props.removeFromCart}>
       <h1>Shop</h1>
       <div className="flex flex-col gap-8">
         {ALL_PRODUCTS.map((product) => {

@@ -2,6 +2,7 @@ import { CartItem } from "../commons.ts";
 
 type HeaderProps = {
   cartItems: CartItem[];
+  removeFromCart: (product: CartItem) => void;
 };
 
 export default function Header(props: HeaderProps) {
@@ -59,6 +60,7 @@ export default function Header(props: HeaderProps) {
                     <th>Anzahl</th>
                     <th>Einzelpreis</th>
                     <th>Gesamtpreis</th>
+                    <th>Entfernen</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -69,6 +71,7 @@ export default function Header(props: HeaderProps) {
                         <td>{item.quantity}</td>
                         <td>{item.price}</td>
                         <td>{parseFloat(item.price) * item.quantity}</td>
+                        <td onClick={() => props.removeFromCart(item)}>X</td>
                       </tr>
                     );
                   })}
@@ -79,8 +82,12 @@ export default function Header(props: HeaderProps) {
                 <span>{sumUpCart()}</span>
               </div>
               <div className="card-actions">
-                <a className="btn btn-primary btn-block">
-                  Einkaufswagen ansehen
+                <a
+                  className={`btn btn-primary btn-block ${
+                    props.cartItems.length === 0 ? "btn-disabled" : ""
+                  }`}
+                >
+                  Weiter zum Bezahlvorgang
                 </a>
               </div>
             </div>
