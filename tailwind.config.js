@@ -3,7 +3,11 @@ import * as daisyui from "daisyui";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        accent: "#F6EDED",
+      },
+    },
   },
   plugins: [daisyui],
 };
