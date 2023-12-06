@@ -59,7 +59,7 @@ export default function Payment({
         </div>
       </div>
       {selected && (
-        <div className="p-2 flex flex-col justify-center items-center">
+        <div className="py-2 px-4 flex flex-col justify-center items-center">
           {selectedContent}
         </div>
       )}

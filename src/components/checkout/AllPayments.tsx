@@ -40,7 +40,32 @@ export default function AllPayments() {
             url: "/src/assets/images/payments/mastero.png",
           },
         ]}
-        selectedContent={<div>TODO</div>}
+        selectedContent={
+          <div className="flex flex-col gap-2 w-full">
+            <input
+              type="text"
+              placeholder="Card Number"
+              className="border-2 rounded-md p-2 w-full"
+            />
+            <div className="flex flex-row gap-2">
+              <input
+                type="text"
+                placeholder="Expiration Date (MM/YY)"
+                className="border-2 rounded-md p-2 w-full"
+              />
+              <input
+                type="text"
+                placeholder="Security Code"
+                className="border-2 rounded-md p-2 w-full"
+              />
+            </div>
+            <input
+              type="text"
+              placeholder="Name on Card"
+              className="border-2 rounded-md p-2 w-full"
+            />
+          </div>
+        }
         selected={selectedPayment === PaymentType.CreditCard}
         onSelected={() => setSelectedPayment(PaymentType.CreditCard)}
       />
