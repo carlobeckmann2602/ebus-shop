@@ -37,6 +37,7 @@ export default function Payment({
               name="payment"
               value={type}
               checked={selected}
+              onChange={() => {}}
             />
             <h1 className="text-xl font-bold">{type}</h1>
           </div>
@@ -50,6 +51,7 @@ export default function Payment({
                       ? { backgroundColor: icon.backgroundColor }
                       : {}
                   }
+                  key={icon.url}
                 >
                   <img src={icon.url} className="object-fill" />
                 </div>
