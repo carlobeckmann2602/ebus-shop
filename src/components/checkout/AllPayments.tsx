@@ -5,6 +5,11 @@ export default function AllPayments() {
   const [selectedPayment, setSelectedPayment] = useState<PaymentType | null>(
     null
   );
+
+  function onPaymentSelected(type: PaymentType) {
+    setSelectedPayment((value) => (value === type ? null : type));
+  }
+
   return (
     <div className="flex flex-col gap-2">
       <Payment
@@ -21,7 +26,7 @@ export default function AllPayments() {
           </div>
         }
         selected={selectedPayment === PaymentType.PayPal}
-        onSelected={() => setSelectedPayment(PaymentType.PayPal)}
+        onSelected={() => onPaymentSelected(PaymentType.PayPal)}
       />
       <Payment
         type={PaymentType.CreditCard}
@@ -67,7 +72,7 @@ export default function AllPayments() {
           </div>
         }
         selected={selectedPayment === PaymentType.CreditCard}
-        onSelected={() => setSelectedPayment(PaymentType.CreditCard)}
+        onSelected={() => onPaymentSelected(PaymentType.CreditCard)}
       />
       <Payment
         type={PaymentType.Klarna}
@@ -84,7 +89,7 @@ export default function AllPayments() {
           </div>
         }
         selected={selectedPayment === PaymentType.Klarna}
-        onSelected={() => setSelectedPayment(PaymentType.Klarna)}
+        onSelected={() => onPaymentSelected(PaymentType.Klarna)}
       />
       <Payment
         type={PaymentType.ApplePay}
@@ -100,7 +105,7 @@ export default function AllPayments() {
           </div>
         }
         selected={selectedPayment === PaymentType.ApplePay}
-        onSelected={() => setSelectedPayment(PaymentType.ApplePay)}
+        onSelected={() => onPaymentSelected(PaymentType.ApplePay)}
       />
       <Payment
         type={PaymentType.GooglePay}
@@ -116,7 +121,7 @@ export default function AllPayments() {
           </div>
         }
         selected={selectedPayment === PaymentType.GooglePay}
-        onSelected={() => setSelectedPayment(PaymentType.GooglePay)}
+        onSelected={() => onPaymentSelected(PaymentType.GooglePay)}
       />
     </div>
   );
