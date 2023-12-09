@@ -51,25 +51,38 @@ function App() {
               cartItems={cartItems}
               addToCart={addToCart}
               removeFromCart={removeFromCart}
+              resetShop={resetShop}
             />
           }
         />
         <Route
           path="overview"
           element={
-            <Overview cartItems={cartItems} removeFromCart={removeFromCart} />
+            <Overview
+              cartItems={cartItems}
+              removeFromCart={removeFromCart}
+              resetShop={resetShop}
+            />
           }
         />
         <Route
           path="checkout"
           element={
-            <Checkout cartItems={cartItems} removeFromCart={removeFromCart} />
+            <Checkout
+              cartItems={cartItems}
+              removeFromCart={removeFromCart}
+              resetShop={resetShop}
+            />
           }
         />
         <Route
           path="cart"
           element={
-            <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
+            <Cart
+              cartItems={cartItems}
+              removeFromCart={removeFromCart}
+              resetShop={resetShop}
+            />
           }
         />
       </>,
@@ -100,6 +113,10 @@ function App() {
     return cartItems.findIndex((productInCart) => {
       return productInCart.id === productForCart.id;
     });
+  }
+
+  function resetShop() {
+    setCartItems([]);
   }
 
   return (

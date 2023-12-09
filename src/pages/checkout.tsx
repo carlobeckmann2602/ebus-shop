@@ -7,11 +7,16 @@ import Guide from "../components/Guide.tsx";
 type CheckoutProps = {
   cartItems: CartItem[];
   removeFromCart: (product: CartItem) => void;
+  resetShop: () => void;
 };
 
 export default function Checkout(props: CheckoutProps) {
   return (
-    <Layout cartItems={props.cartItems} removeFromCart={props.removeFromCart}>
+    <Layout
+      cartItems={props.cartItems}
+      removeFromCart={props.removeFromCart}
+      resetShop={props.resetShop}
+    >
       <Guide
         content={
           <div className="flex flex-col gap-8">
