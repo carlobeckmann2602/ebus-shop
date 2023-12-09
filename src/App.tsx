@@ -13,11 +13,33 @@ import Cart from "./pages/cart.tsx";
 import { CartItem } from "./commons.ts";
 
 function App() {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(getCartFromStorage());
 
+  // only run on initial app.tsx load to retrieve the persisted cart
   useEffect(() => {
-    console.log("cartItems: ", cartItems);
+    console.log("init");
+    setCartItems(getCartFromStorage());
+  }, []);
+
+  // run each time the cart is updated to persist a current version of the cart
+  useEffect(() => {
+    console.log("update", cartItems);
+    localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
+
+  function getCartFromStorage(): CartItem[] {
+    const _cart = localStorage.getItem("cart");
+    if (_cart && _cart !== "undefined") {
+      const parsedCart = JSON.parse(_cart);
+      if (parsedCart) {
+        return [...parsedCart];
+      } else {
+        return [];
+      }
+    } else {
+      return [];
+    }
+  }
 
   const router = createBrowserRouter(
     createRoutesFromElements(

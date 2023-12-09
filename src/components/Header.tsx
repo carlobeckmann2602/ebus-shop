@@ -66,7 +66,7 @@ export default function Header(props: HeaderProps) {
                 <tbody>
                   {props.cartItems.map((item) => {
                     return (
-                      <tr key={"cart-item-" + Date.now()}>
+                      <tr key={"cart-item-" + item.id}>
                         <td>{item.name}</td>
                         <td>{item.quantity}</td>
                         <td>{item.price}</td>
