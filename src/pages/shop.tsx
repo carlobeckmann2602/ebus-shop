@@ -6,11 +6,16 @@ type ShopProps = {
   cartItems: CartItem[];
   addToCart: (product: CartItem) => void;
   removeFromCart: (product: CartItem) => void;
+  resetShop: () => void;
 };
 
 export default function Shop(props: ShopProps) {
   return (
-    <Layout cartItems={props.cartItems} removeFromCart={props.removeFromCart}>
+    <Layout
+      cartItems={props.cartItems}
+      removeFromCart={props.removeFromCart}
+      resetShop={props.resetShop}
+    >
       <h1>Shop</h1>
       <div className="flex flex-col gap-8">
         {ALL_PRODUCTS.map((product) => {

@@ -1,11 +1,15 @@
 import { CartItem } from "../commons.ts";
+import { useNavigate } from "react-router-dom";
 
 type HeaderProps = {
   cartItems: CartItem[];
   removeFromCart: (product: CartItem) => void;
+  resetShop: () => void;
 };
 
 export default function Header(props: HeaderProps) {
+  const navigate = useNavigate();
+
   function sumUpCart() {
     let sum = 0.0;
     props.cartItems.forEach((item) => {
@@ -14,10 +18,22 @@ export default function Header(props: HeaderProps) {
     return sum.toString();
   }
 
+  function resetShop() {
+    props.resetShop();
+    navigate("/");
+  }
+
   return (
     <div className="navbar bg-base-100 shadow-lg">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">zurücksetzen</a>
+        <button
+          onClick={() => {
+            resetShop();
+          }}
+          className="btn btn-ghost text-xl"
+        >
+          zurücksetzen
+        </button>
       </div>
       <div className="flex-1">
         <a href="/">E-Bus Shop</a>
@@ -66,7 +82,7 @@ export default function Header(props: HeaderProps) {
                 <tbody>
                   {props.cartItems.map((item) => {
                     return (
-                      <tr key={"cart-item-" + Date.now()}>
+                      <tr key={"cart-item-" + item.id}>
                         <td>{item.name}</td>
                         <td>{item.quantity}</td>
                         <td>{item.price}</td>
