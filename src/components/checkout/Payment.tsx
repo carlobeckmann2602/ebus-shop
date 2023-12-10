@@ -1,10 +1,4 @@
-export enum PaymentType {
-  PayPal = "PayPal",
-  CreditCard = "Credit Card",
-  Klarna = "Klarna",
-  ApplePay = "Apple Pay",
-  GooglePay = "Google Pay",
-}
+import { PaymentType } from "../../constants/PaymentTypes.ts";
 
 type PaymentProps = {
   type: PaymentType;
@@ -25,46 +19,38 @@ export default function Payment({
   onSelected,
 }: PaymentProps) {
   return (
-    <div className="rounded-md bg-accent">
-      <div
-        className="bg-white border-2 rounded-md cursor-pointer hover:bg-gray-100"
-        onClick={onSelected}
-      >
-        <div className="flex flex-row justify-between items-center mr-2">
-          <div className="flex flex-row gap-2 p-2">
-            <input
-              type="radio"
-              name="payment"
-              value={type}
-              checked={selected}
-              onChange={() => {}}
-            />
-            <h1 className="text-xl font-bold">{type}</h1>
-          </div>
-          <div className="flex flex-row gap-1">
-            {icons.map((icon) => {
-              return (
-                <div
-                  className="px-3 py-1 border-2 rounded-md h-8 aspect-video flex flex-col justify-center items-center"
-                  style={
-                    icon.backgroundColor
-                      ? { backgroundColor: icon.backgroundColor }
-                      : {}
-                  }
-                  key={icon.url}
-                >
-                  <img src={icon.url} className="object-fill" />
-                </div>
-              );
-            })}
-          </div>
+    <div className="collapse bg-white border input-bordered">
+      <input type="radio" name="my-accordion-1" onChange={onSelected} />
+      <div className="collapse-title text-xl font-medium flex flex-row gap-4 justify-between pe-4">
+        <div className="flex flex-row gap-3 align-middle items-center">
+          <input
+            type="radio"
+            className="radio radio-primary"
+            checked={selected}
+          />
+          {type}
+        </div>
+        <div className="flex flex-row gap-1">
+          {icons.map((icon) => {
+            return (
+              <div
+                className="px-3 py-1 border-2 rounded-md h-8 aspect-video flex flex-col justify-center items-center"
+                style={
+                  icon.backgroundColor
+                    ? { backgroundColor: icon.backgroundColor }
+                    : {}
+                }
+                key={icon.url}
+              >
+                <img src={icon.url} className="object-fill" />
+              </div>
+            );
+          })}
         </div>
       </div>
-      {selected && (
-        <div className="py-2 px-4 flex flex-col justify-center items-center">
-          {selectedContent}
-        </div>
-      )}
+      <div className={"collapse-content bg-accent" + (selected ? " pt-4" : "")}>
+        <p>{selectedContent}</p>
+      </div>
     </div>
   );
 }

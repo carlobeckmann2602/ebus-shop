@@ -1,15 +1,15 @@
-import { useState } from "react";
-import Payment, { PaymentType } from "./Payment";
+import { PaymentType } from "../../constants/PaymentTypes";
+import Payment from "./Payment";
 
-export default function AllPayments() {
-  const [selectedPayment, setSelectedPayment] = useState<PaymentType | null>(
-    null
-  );
+type Props = {
+  selectedPayment: PaymentType | null;
+  onPaymentSelected: (paymentType: PaymentType) => void;
+};
 
-  function onPaymentSelected(type: PaymentType) {
-    setSelectedPayment((value) => (value === type ? null : type));
-  }
-
+export default function AllPayments({
+  selectedPayment,
+  onPaymentSelected,
+}: Props) {
   return (
     <div className="flex flex-col gap-2">
       <Payment
@@ -46,29 +46,49 @@ export default function AllPayments() {
           },
         ]}
         selectedContent={
-          <div className="flex flex-col gap-2 w-full">
-            <input
-              type="text"
-              placeholder="Card Number"
-              className="border-2 rounded-md p-2 w-full"
-            />
+          <div className="flex flex-col gap-2 w-full form-control">
+            <label className="w-full">
+              <div className="label">
+                <span className="label-text">Kartennummer</span>
+              </div>
+              <input
+                type="text"
+                placeholder="0000 0000 0000 0000"
+                className="input input-bordered w-full"
+              />
+            </label>
             <div className="flex flex-row gap-2">
-              <input
-                type="text"
-                placeholder="Expiration Date (MM/YY)"
-                className="border-2 rounded-md p-2 w-full"
-              />
-              <input
-                type="text"
-                placeholder="Security Code"
-                className="border-2 rounded-md p-2 w-full"
-              />
+              <label className="w-full">
+                <div className="label">
+                  <span className="label-text">Ablaufdatum</span>
+                </div>
+                <input
+                  type="text"
+                  placeholder="MM /YY"
+                  className="input input-bordered w-full"
+                />
+              </label>
+              <label className="w-full">
+                <div className="label">
+                  <span className="label-text">Sicherheitsnummer</span>
+                </div>
+                <input
+                  type="text"
+                  placeholder="XXX"
+                  className="input input-bordered w-full"
+                />
+              </label>
             </div>
-            <input
-              type="text"
-              placeholder="Name on Card"
-              className="border-2 rounded-md p-2 w-full"
-            />
+            <label className="w-full">
+              <div className="label">
+                <span className="label-text">Name</span>
+              </div>
+              <input
+                type="text"
+                placeholder="Name auf der Kreditkarte"
+                className="input input-bordered w-full"
+              />
+            </label>
           </div>
         }
         selected={selectedPayment === PaymentType.CreditCard}

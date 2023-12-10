@@ -3,6 +3,10 @@ import Layout from "./_layout.tsx";
 import { CartItem } from "../commons.ts";
 import DeliveryInformationForm from "../components/checkout/DeliveryInformationForm.tsx";
 import Guide from "../components/Guide.tsx";
+import CartSummary from "../components/checkout/CartSummary.tsx";
+import PaymentSummary from "../components/checkout/PaymentSummary.tsx";
+import { useState } from "react";
+import { PaymentType } from "../constants/PaymentTypes.ts";
 
 type CheckoutProps = {
   cartItems: CartItem[];
@@ -11,6 +15,14 @@ type CheckoutProps = {
 };
 
 export default function Checkout(props: CheckoutProps) {
+  const [selectedPayment, setSelectedPayment] = useState<PaymentType | null>(
+    null
+  );
+
+  function onPaymentSelected(type: PaymentType) {
+    setSelectedPayment((value) => (value === type ? null : type));
+  }
+
   return (
     <Layout
       cartItems={props.cartItems}
@@ -21,16 +33,27 @@ export default function Checkout(props: CheckoutProps) {
         content={
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-2">
-              <h1 className="text-xl font-bold">Delivery Information</h1>
+              <h1 className="text-xl font-bold">Bestellzusammenfassung</h1>
+              <CartSummary />
+            </div>
+            <div className="flex flex-col gap-2">
+              <h1 className="text-xl font-bold">Lieferinformationen</h1>
               <DeliveryInformationForm />
             </div>
             <div className="flex flex-col gap-2">
               <h1 className="text-xl font-bold">Bezahlverfahren</h1>
-              <AllPayments />
+              <AllPayments
+                selectedPayment={selectedPayment}
+                onPaymentSelected={onPaymentSelected}
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <h1 className="text-xl font-bold">Rechnungsübersicht</h1>
+              <PaymentSummary />
             </div>
             <div className="flex flex-row items-center justify-center">
               <button className="bg-black text-white font-bold p-2 text-center w-10/12 rounded-md hover:bg-gray-900 text-xl">
-                Pay now
+                Bezahlen
               </button>
             </div>
           </div>
