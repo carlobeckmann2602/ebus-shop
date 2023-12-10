@@ -1,6 +1,6 @@
 export enum PaymentType {
   PayPal = "PayPal",
-  CreditCard = "Credit Card",
+  CreditCard = "Kreditkarte",
   Klarna = "Klarna",
   ApplePay = "Apple Pay",
   GooglePay = "Google Pay",

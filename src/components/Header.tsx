@@ -38,7 +38,7 @@ export default function Header(props: HeaderProps) {
           </button>
         </div>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 text-3xl">
         <a href="/">E-Bus Shop</a>
       </div>
       <div className="flex-none">
@@ -102,6 +102,7 @@ export default function Header(props: HeaderProps) {
               </div>
               <div className="card-actions">
                 <a
+                  href="/checkout"
                   className={`btn btn-primary btn-block ${
                     props.cartItems.length === 0 ? "btn-disabled" : ""
                   }`}
