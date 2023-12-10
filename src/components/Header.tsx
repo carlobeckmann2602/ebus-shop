@@ -1,3 +1,4 @@
+import { RotateCcw } from "lucide-react";
 import { CartItem } from "../commons.ts";
 import { useNavigate } from "react-router-dom";
 
@@ -26,14 +27,16 @@ export default function Header(props: HeaderProps) {
   return (
     <div className="navbar bg-base-100 shadow-lg">
       <div className="flex-1">
-        <button
-          onClick={() => {
-            resetShop();
-          }}
-          className="btn btn-ghost text-xl"
-        >
-          zurücksetzen
-        </button>
+        <div className="tooltip tooltip-right" data-tip="Zurücksetzen">
+          <button
+            onClick={() => {
+              resetShop();
+            }}
+            className="btn btn-ghost text-xl"
+          >
+            <RotateCcw size={20} />
+          </button>
+        </div>
       </div>
       <div className="flex-1">
         <a href="/">E-Bus Shop</a>
@@ -118,7 +121,8 @@ export default function Header(props: HeaderProps) {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src="src/assets/images/header/max_mustermann.jpg"
+                className="object-top"
               />
             </div>
           </div>
@@ -126,7 +130,7 @@ export default function Header(props: HeaderProps) {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
+            <li className="menu-title">
               <span>Max Mustermann</span>
             </li>
             <li>
