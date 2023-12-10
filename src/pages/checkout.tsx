@@ -98,7 +98,10 @@ export default function Checkout(props: CheckoutProps) {
                 onClick={() => {
                   navigate(`/overview?method=${selectedPayment}`);
                 }}
-                disabled={selectedPayment ? false : true}
+                disabled={
+                  (selectedPayment ? false : true) ||
+                  props.cartItems.length === 0
+                }
               >
                 Bezahlen
               </button>
