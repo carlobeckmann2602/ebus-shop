@@ -85,8 +85,8 @@ function App() {
             />
           }
         />
-      </>,
-    ),
+      </>
+    )
   );
 
   function addToCart(productForCart: CartItem) {

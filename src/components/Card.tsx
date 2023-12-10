@@ -22,29 +22,31 @@ export default function Card(props: CardProps) {
 
   return (
     <div className="card card-side bg-base-100 shadow-xl">
-      <figure>
+      <figure className="w-1/4">
         <img className="h-full" src={props.imageUrl} alt={props.imageAlt} />
       </figure>
-      <div className="card-body">
+      <div className="card-body w-3/4">
         <h2 className="card-title">{props.name}</h2>
         <p>{props.description}</p>
-        <span className="stat-value text-primary">{props.price} €</span>
-        <div className="card-actions justify-end align-center">
-          <label htmlFor="quantity" style={{ alignSelf: "center" }}>
-            Anzahl
-          </label>
-          <input
-            id="quantity"
-            min={1}
-            max={10}
-            type="number"
-            value={quantity ?? 1}
-            onChange={(e) => setQuantity(parseInt(e.target.value))}
-            className="input input-bordered w-16 max-w-xs"
-          />
-          <button onClick={() => addToCart()} className="btn btn-primary">
-            in den Warenkorb
-          </button>
+        <div className="flex flex-row justify-between">
+          <span className="stat-value text-primary">{props.price} €</span>
+          <div className="card-actions justify-end align-center">
+            <label htmlFor="quantity" style={{ alignSelf: "center" }}>
+              Anzahl
+            </label>
+            <input
+              id="quantity"
+              min={1}
+              max={10}
+              type="number"
+              value={quantity ?? 1}
+              onChange={(e) => setQuantity(parseInt(e.target.value))}
+              className="input input-bordered w-16 max-w-xs"
+            />
+            <button onClick={() => addToCart()} className="btn btn-primary">
+              in den Warenkorb
+            </button>
+          </div>
         </div>
       </div>
     </div>
