@@ -13,6 +13,7 @@ import GooglePayInfotext from "../components/checkout/infotext/GooglePayInfotext
 import ApplePayInfotext from "../components/checkout/infotext/ApplePayInfotext.tsx";
 import KlarnaInfotext from "../components/checkout/infotext/KlarnaInfotext.tsx";
 import IntroText from "../components/checkout/infotext/IntroText.tsx";
+import { useNavigate } from "react-router-dom";
 
 type CheckoutProps = {
   cartItems: CartItem[];
@@ -24,6 +25,8 @@ export default function Checkout(props: CheckoutProps) {
   const [selectedPayment, setSelectedPayment] = useState<PaymentType | null>(
     null
   );
+
+  const navigate = useNavigate();
 
   function onPaymentSelected(type: PaymentType) {
     setSelectedPayment((value) => (value === type ? null : type));
@@ -90,7 +93,13 @@ export default function Checkout(props: CheckoutProps) {
               <PaymentSummary cartItems={props.cartItems} />
             </div>
             <div className="flex flex-row items-center justify-center">
-              <button className="bg-black text-white font-bold p-2 text-center w-10/12 rounded-md hover:bg-gray-900 text-xl">
+              <button
+                className="btn btn-primary w-full"
+                onClick={() => {
+                  navigate(`/overview?method=${selectedPayment}`);
+                }}
+                disabled={selectedPayment ? false : true}
+              >
                 Bezahlen
               </button>
             </div>
