@@ -69,7 +69,10 @@ export default function Checkout(props: CheckoutProps) {
             <h1 className="text-4xl font-bold">Bezahlvorgang</h1>
             <div className="flex flex-col gap-2">
               <h2 className="text-xl font-bold">Bestellzusammenfassung</h2>
-              <CartSummary />
+              <CartSummary
+                cartItems={props.cartItems}
+                removeFromCart={props.removeFromCart}
+              />
             </div>
             <div className="flex flex-col gap-2">
               <h2 className="text-xl font-bold">Lieferinformationen</h2>
@@ -84,7 +87,7 @@ export default function Checkout(props: CheckoutProps) {
             </div>
             <div className="flex flex-col gap-2">
               <h2 className="text-xl font-bold">Rechnungsübersicht</h2>
-              <PaymentSummary />
+              <PaymentSummary cartItems={props.cartItems} />
             </div>
             <div className="flex flex-row items-center justify-center">
               <button className="bg-black text-white font-bold p-2 text-center w-10/12 rounded-md hover:bg-gray-900 text-xl">

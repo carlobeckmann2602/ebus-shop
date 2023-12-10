@@ -1,6 +1,7 @@
 import { RotateCcw } from "lucide-react";
 import { CartItem } from "../commons.ts";
 import { useNavigate } from "react-router-dom";
+import CartSummary from "./checkout/CartSummary.tsx";
 
 type HeaderProps = {
   cartItems: CartItem[];
@@ -10,14 +11,6 @@ type HeaderProps = {
 
 export default function Header(props: HeaderProps) {
   const navigate = useNavigate();
-
-  function sumUpCart() {
-    let sum = 0.0;
-    props.cartItems.forEach((item) => {
-      sum += parseFloat(item.price) * item.quantity;
-    });
-    return sum.toString();
-  }
 
   function resetShop() {
     props.resetShop();
@@ -60,7 +53,10 @@ export default function Header(props: HeaderProps) {
                 />
               </svg>
               <span className="badge badge-sm indicator-item">
-                {props.cartItems.length}
+                {props.cartItems.reduce(
+                  (accumulator, item) => accumulator + item.quantity,
+                  0
+                )}
               </span>
             </div>
           </div>
@@ -70,36 +66,16 @@ export default function Header(props: HeaderProps) {
           >
             <div className="card-body">
               <span className="font-bold text-lg">
-                {props.cartItems.length} Produkte
+                {props.cartItems.reduce(
+                  (accumulator, item) => accumulator + item.quantity,
+                  0
+                )}{" "}
+                Produkte
               </span>
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Anzahl</th>
-                    <th>Einzelpreis</th>
-                    <th>Gesamtpreis</th>
-                    <th>Entfernen</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {props.cartItems.map((item) => {
-                    return (
-                      <tr key={"cart-item-" + item.id}>
-                        <td>{item.name}</td>
-                        <td>{item.quantity}</td>
-                        <td>{item.price}</td>
-                        <td>{parseFloat(item.price) * item.quantity}</td>
-                        <td onClick={() => props.removeFromCart(item)}>X</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-              <div className="px-4 flex justify-between">
-                <span className="text-info">Summe</span>
-                <span>{sumUpCart()}</span>
-              </div>
+              <CartSummary
+                cartItems={props.cartItems}
+                removeFromCart={props.removeFromCart}
+              />
               <div className="card-actions">
                 <a
                   href="/checkout"
