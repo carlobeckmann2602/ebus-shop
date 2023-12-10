@@ -7,6 +7,7 @@ type CartSummaryProps = {
 };
 
 export default function CartSummary(props: CartSummaryProps) {
+  if (props.cartItems.length === 0) return <span>Dein Warenkorb ist leer</span>;
   return (
     <div className="overflow-x-auto">
       <table className="table">

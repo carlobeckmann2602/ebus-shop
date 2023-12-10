@@ -62,9 +62,9 @@ export default function Header(props: HeaderProps) {
           </div>
           <div
             tabIndex={0}
-            className="mt-3 z-[1] card card-compact dropdown-content w-75 bg-base-100 shadow"
+            className="mt-3 z-[1] card card-compact dropdown-content bg-base-100 shadow min-w-[200px]"
           >
-            <div className="card-body">
+            <div className="card-body gap-4">
               <span className="font-bold text-lg">
                 {props.cartItems.reduce(
                   (accumulator, item) => accumulator + item.quantity,
