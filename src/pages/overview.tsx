@@ -46,7 +46,7 @@ export default function Overview(props: OverviewProps) {
             style={{ height: "calc(100vh - 7rem)" }}
           >
             <span className="text-center font-medium text-xl">
-              Keine Bezahlungsmethode wurde ausgewählt!
+              Es wurde keine Bezahlungsmethode ausgewählt!
             </span>
             <a href="/" className="btn btn-primary max-w-sm w-full text-lg">
               Zurück zur Startseite!
