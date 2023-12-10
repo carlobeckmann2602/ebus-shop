@@ -7,7 +7,7 @@ type PaymentSummaryProps = {
 export default function PaymentSummary(props: PaymentSummaryProps) {
   return (
     <div className="flex flex-row justify-between text-lg font-medium">
-      <span>Gesamtbetrag für ihre Bestellung: </span>
+      <span>Gesamtbetrag für deine Bestellung: </span>
       <span>
         {props.cartItems
           .reduce(
