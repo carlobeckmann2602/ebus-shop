@@ -10,13 +10,26 @@ export default function PaypalInfotext() {
           <h2 className="text-lg font-bold mb-4">
             Zahlungsabwickelung mit PayPal
           </h2>
-          <p className="mb-4">
-            <i>
-              Hinweis: Probieren Sie die interaktive Simulation eines
-              Bezahlvorgangs über PayPal aus, indem Sie auf den Button
-              "Bezahlen" klicken.
-            </i>
-          </p>
+          <div role="alert" className="alert alert-info mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              className="stroke-current shrink-0 w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <span>
+              Probieren Sie die interaktive Simulation eines Bezahlvorgangs über
+              PayPal aus, indem Sie auf den Button "Bezahlen" klicken.
+            </span>
+          </div>
+
           <p className="mb-4">
             Der genaue technische Ablauf des Bezahlvorgangs bei PayPal ist durch
             verschiedene Schritte gekennzeichnet, die im Hintergrund ablaufen.
@@ -25,7 +38,10 @@ export default function PaypalInfotext() {
             Die folgenden Abschnitte beschreiben diese nach einander. Klicken
             Sie dazu auf die nummerierten Reiter.
           </p>
-          <div tabIndex={0} className="collapse bg-base-200">
+          <div
+            tabIndex={0}
+            className="collapse bg-primary text-primary-content mb-2"
+          >
             <div className="collapse-title text-xl font-medium">
               1. API-Aufrufe
             </div>
@@ -39,7 +55,10 @@ export default function PaypalInfotext() {
               </p>
             </div>
           </div>
-          <div tabIndex={1} className="collapse bg-base-200">
+          <div
+            tabIndex={1}
+            className="collapse bg-primary text-primary-content mb-2"
+          >
             <div className="collapse-title text-xl font-medium">
               2. Weiterleitung zu PayPal
             </div>
@@ -53,7 +72,10 @@ export default function PaypalInfotext() {
               </p>
             </div>
           </div>
-          <div tabIndex={2} className="collapse bg-base-200">
+          <div
+            tabIndex={2}
+            className="collapse bg-primary text-primary-content mb-2"
+          >
             <div className="collapse-title text-xl font-medium">
               3. Zahlungsautorisierung
             </div>
@@ -66,7 +88,10 @@ export default function PaypalInfotext() {
               </p>
             </div>
           </div>
-          <div tabIndex={3} className="collapse bg-base-200">
+          <div
+            tabIndex={3}
+            className="collapse bg-primary text-primary-content mb-2"
+          >
             <div className="collapse-title text-xl font-medium">
               4. Zahlungsabwicklung
             </div>
@@ -80,7 +105,10 @@ export default function PaypalInfotext() {
               </p>
             </div>
           </div>
-          <div tabIndex={4} className="collapse bg-base-200">
+          <div
+            tabIndex={4}
+            className="collapse bg-primary text-primary-content mb-2"
+          >
             <div className="collapse-title text-xl font-medium">
               5. Rückmeldung an den Kunden
             </div>
