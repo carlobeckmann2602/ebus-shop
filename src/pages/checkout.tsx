@@ -14,6 +14,7 @@ import ApplePayInfotext from "../components/checkout/infotext/ApplePayInfotext.t
 import KlarnaInfotext from "../components/checkout/infotext/KlarnaInfotext.tsx";
 import IntroText from "../components/checkout/infotext/IntroText.tsx";
 import { useNavigate } from "react-router-dom";
+import PaypalDemoModal from "../components/checkout/demoModals/PaypalDemoModal.tsx";
 
 type CheckoutProps = {
   cartItems: CartItem[];
@@ -23,13 +24,35 @@ type CheckoutProps = {
 
 export default function Checkout(props: CheckoutProps) {
   const [selectedPayment, setSelectedPayment] = useState<PaymentType | null>(
-    null
+    null,
   );
+  const [showPaypalDemoModal, setShowPaypalDemoModal] = useState(false);
 
   const navigate = useNavigate();
 
   function onPaymentSelected(type: PaymentType) {
     setSelectedPayment((value) => (value === type ? null : type));
+  }
+
+  function initDemoModalsIfExists() {
+    console.log("selectedPayment", selectedPayment);
+    switch (selectedPayment) {
+      case PaymentType.PayPal:
+        console.log("Paypal");
+        setShowPaypalDemoModal(true);
+        break;
+      default:
+        continueToOverview();
+        break;
+    }
+  }
+
+  function continueToOverview(alternativeUrl?: string) {
+    if (alternativeUrl) {
+      navigate(alternativeUrl);
+    } else {
+      navigate(`/overview?method=${selectedPayment}`);
+    }
   }
 
   const infotext = () => {
@@ -96,16 +119,22 @@ export default function Checkout(props: CheckoutProps) {
               <button
                 className="btn btn-primary w-full"
                 onClick={() => {
-                  navigate(`/overview?method=${selectedPayment}`);
+                  console.log("initDemoModalsIfExists()");
+                  initDemoModalsIfExists();
                 }}
-                disabled={
-                  (selectedPayment ? false : true) ||
-                  props.cartItems.length === 0
-                }
+                disabled={!selectedPayment || props.cartItems.length === 0}
               >
                 Bezahlen
               </button>
             </div>
+            {showPaypalDemoModal ? (
+              <PaypalDemoModal
+                setShowPaypalDemoModal={setShowPaypalDemoModal}
+                afterModal={continueToOverview}
+              ></PaypalDemoModal>
+            ) : (
+              ""
+            )}
           </div>
         }
         explanation={<div className="flex flex-col gap-4">{infotext()}</div>}
