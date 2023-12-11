@@ -2,6 +2,7 @@ import { RotateCcw } from "lucide-react";
 import { CartItem } from "../commons.ts";
 import { useNavigate } from "react-router-dom";
 import CartSummary from "./checkout/CartSummary.tsx";
+import ProfileImage from '../assets/images/header/max_mustermann.jpg'
 
 type HeaderProps = {
   cartItems: CartItem[];
@@ -55,7 +56,7 @@ export default function Header(props: HeaderProps) {
               <span className="badge badge-sm indicator-item">
                 {props.cartItems.reduce(
                   (accumulator, item) => accumulator + item.quantity,
-                  0
+                  0,
                 )}
               </span>
             </div>
@@ -68,7 +69,7 @@ export default function Header(props: HeaderProps) {
               <span className="font-bold text-lg">
                 {props.cartItems.reduce(
                   (accumulator, item) => accumulator + item.quantity,
-                  0
+                  0,
                 )}{" "}
                 Produkte
               </span>
@@ -98,7 +99,7 @@ export default function Header(props: HeaderProps) {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="src/assets/images/header/max_mustermann.jpg"
+                src={ProfileImage}
                 className="object-top"
               />
             </div>

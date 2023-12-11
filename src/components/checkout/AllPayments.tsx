@@ -1,5 +1,13 @@
 import { PaymentType } from "../../constants/PaymentTypes";
 import Payment from "./Payment";
+import PayPalIcon from "../../assets/images/payments/paypal.png";
+import AmexIcon from "../../assets/images/payments/amex.png";
+import ApplePayIcon from "../../assets/images/payments/apple-pay.png";
+import GooglePayIcon from "../../assets/images/payments/google-pay.png";
+import KlarnaIcon from "../../assets/images/payments/klarna.svg";
+import MastercardIcon from "../../assets/images/payments/mastercard.png";
+import MaestroIcon from "../../assets/images/payments/mastero.png";
+import VisaIcon from "../../assets/images/payments/visa.png";
 
 type Props = {
   selectedPayment: PaymentType | null;
@@ -16,7 +24,7 @@ export default function AllPayments({
         type={PaymentType.PayPal}
         icons={[
           {
-            url: "/src/assets/images/payments/paypal.png",
+            url: PayPalIcon,
           },
         ]}
         selectedContent={
@@ -32,17 +40,17 @@ export default function AllPayments({
         type={PaymentType.CreditCard}
         icons={[
           {
-            url: "/src/assets/images/payments/amex.png",
+            url: AmexIcon,
             backgroundColor: "#006DBE",
           },
           {
-            url: "/src/assets/images/payments/visa.png",
+            url: VisaIcon,
           },
           {
-            url: "/src/assets/images/payments/mastercard.png",
+            url: MastercardIcon,
           },
           {
-            url: "/src/assets/images/payments/mastero.png",
+            url: MaestroIcon,
           },
         ]}
         selectedContent={
@@ -98,7 +106,7 @@ export default function AllPayments({
         type={PaymentType.Klarna}
         icons={[
           {
-            url: "/src/assets/images/payments/klarna.svg",
+            url: KlarnaIcon,
             backgroundColor: "#F3B7C7",
           },
         ]}
@@ -115,7 +123,7 @@ export default function AllPayments({
         type={PaymentType.ApplePay}
         icons={[
           {
-            url: "/src/assets/images/payments/apple-pay.png",
+            url: ApplePayIcon,
           },
         ]}
         selectedContent={
@@ -131,7 +139,7 @@ export default function AllPayments({
         type={PaymentType.GooglePay}
         icons={[
           {
-            url: "/src/assets/images/payments/google-pay.png",
+            url: GooglePayIcon,
           },
         ]}
         selectedContent={
