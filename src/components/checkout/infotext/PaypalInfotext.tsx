@@ -13,8 +13,8 @@ export default function PaypalInfotext() {
           <p className="mb-4">
             <i>
               Hinweis: Probieren Sie die interaktive Simulation eines
-              Bezahlvorgangs aus. Klicken Sie dazu einfach auf den Button "Jetzt
-              Bezahlen"
+              Bezahlvorgangs über PayPal aus, indem Sie auf den Button
+              "Bezahlen" klicken.
             </i>
           </p>
           <p className="mb-4">
