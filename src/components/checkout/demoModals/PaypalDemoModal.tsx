@@ -1,5 +1,6 @@
 import { useState } from "react";
 import shoppingCartIcon from "../../../assets/icons/shopping_cart.png";
+import paypalIcon from "../../../assets/images/payments/paypal.png";
 import paypalOne from "../../../assets/images/demoModals/paypal/paypal-1.png";
 import paypalTwo from "../../../assets/images/demoModals/paypal/paypal-2.png";
 import paypalThree from "../../../assets/images/demoModals/paypal/paypal-3.png";
@@ -133,7 +134,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center">
         <div className="h-16 w-16 items-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <img src="/src/assets/images/payments/paypal.png" alt="Paypal Icon" />
+          <img src={paypalIcon} alt="Paypal Icon" />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
           <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
@@ -196,7 +197,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center">
         <div className="h-16 w-16 items-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <img src="/src/assets/images/payments/paypal.png" alt="Paypal Icon" />
+          <img src={paypalIcon} alt="Paypal Icon" />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
           <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
@@ -305,7 +306,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center">
         <div className="h-16 w-16 items-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <img src="/src/assets/images/payments/paypal.png" alt="Paypal Icon" />
+          <img src={paypalIcon} alt="Paypal Icon" />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full">
           <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
@@ -389,7 +390,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center gap-6">
         <div className="h-16 w-16 items-center rounded-full bg-red-100">
-          <img src="src/assets/images/payments/paypal.png" alt="Paypal Icon" />
+          <img src={paypalIcon} alt="Paypal Icon" />
         </div>
         <div className="flex justify-between w-full">
           <h3
@@ -511,7 +512,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center">
         <div className="h-16 w-16 items-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <img src="/src/assets/images/payments/paypal.png" alt="Paypal Icon" />
+          <img src={paypalIcon} alt="Paypal Icon" />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
           <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
@@ -592,7 +593,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center">
         <div className="h-16 w-16 items-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <img src="/src/assets/images/payments/paypal.png" alt="Paypal Icon" />
+          <img src={paypalIcon} alt="Paypal Icon" />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
           <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
@@ -625,7 +626,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
               {ALL_DEMOS[activeStep]}
             </div>
           </div>
-          <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-1/3">
+          <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-1/2">
             <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
               {ALL_STEPS[activeStep]}
             </div>
