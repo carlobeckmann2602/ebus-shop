@@ -29,8 +29,9 @@ export default function AllPayments({
         ]}
         selectedContent={
           <div className="text-center">
-            After clicking "Pay with PayPal" you will be redirected to PayPal to
-            complete your purchase securely.
+            Um die interaktive Simulation eines Bezahlvorgangs über PayPal zu
+            starten und mehr über das Verfahren zu lernen, klicken Sie auf
+            "Bezahlen".
           </div>
         }
         selected={selectedPayment === PaymentType.PayPal}
@@ -128,8 +129,9 @@ export default function AllPayments({
         ]}
         selectedContent={
           <div className="text-center">
-            After clicking "Pay with Apple Pay" you will be redirected to Apple
-            Pay to complete your purchase securely.
+            Um die interaktive Simulation eines Bezahlvorgangs über Apple Pay zu
+            starten und mehr über das Verfahren zu lernen, klicken Sie auf
+            "Bezahlen".
           </div>
         }
         selected={selectedPayment === PaymentType.ApplePay}
@@ -144,8 +146,9 @@ export default function AllPayments({
         ]}
         selectedContent={
           <div className="text-center">
-            After clicking "Pay with Google Pay" you will be redirected to
-            Google Pay to complete your purchase securely.
+            Um die interaktive Simulation eines Bezahlvorgangs über Google Pay
+            zu starten und mehr über das Verfahren zu lernen, klicken Sie auf
+            "Bezahlen".
           </div>
         }
         selected={selectedPayment === PaymentType.GooglePay}
