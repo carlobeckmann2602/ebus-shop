@@ -15,6 +15,7 @@ import KlarnaInfotext from "../components/checkout/infotext/KlarnaInfotext.tsx";
 import IntroText from "../components/checkout/infotext/IntroText.tsx";
 import { useNavigate } from "react-router-dom";
 import PaypalDemoModal from "../components/checkout/demoModals/PaypalDemoModal.tsx";
+import ApplePayDemoModal from "../components/checkout/demoModals/ApplePayDemoModal.tsx";
 
 type CheckoutProps = {
   cartItems: CartItem[];
@@ -24,9 +25,10 @@ type CheckoutProps = {
 
 export default function Checkout(props: CheckoutProps) {
   const [selectedPayment, setSelectedPayment] = useState<PaymentType | null>(
-    null,
+    null
   );
   const [showPaypalDemoModal, setShowPaypalDemoModal] = useState(false);
+  const [showApplePayDemoModal, setShowApplePayDemoModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -40,6 +42,10 @@ export default function Checkout(props: CheckoutProps) {
       case PaymentType.PayPal:
         console.log("Paypal");
         setShowPaypalDemoModal(true);
+        break;
+      case PaymentType.ApplePay:
+        console.log("Apple Pay");
+        setShowApplePayDemoModal(true);
         break;
       default:
         continueToOverview();
@@ -131,7 +137,24 @@ export default function Checkout(props: CheckoutProps) {
               <PaypalDemoModal
                 setShowPaypalDemoModal={setShowPaypalDemoModal}
                 afterModal={continueToOverview}
-              ></PaypalDemoModal>
+              />
+            ) : (
+              ""
+            )}
+            {showApplePayDemoModal ? (
+              <ApplePayDemoModal
+                setShowApplePayDemoModal={setShowApplePayDemoModal}
+                afterModal={continueToOverview}
+                totalValue={
+                  props.cartItems
+                    .reduce(
+                      (accumulator, item) =>
+                        accumulator + parseFloat(item.price) * item.quantity,
+                      0
+                    )
+                    .toFixed(2) + " €"
+                }
+              />
             ) : (
               ""
             )}

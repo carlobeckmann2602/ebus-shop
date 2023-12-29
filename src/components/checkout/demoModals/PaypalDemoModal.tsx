@@ -133,8 +133,12 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoOne() {
     return (
       <div className="flex flex-col items-center">
-        <div className="h-16 w-16 items-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <img src={paypalIcon} alt="Paypal Icon" />
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+          <img
+            className="h-full w-full object-contain"
+            src={paypalIcon}
+            alt="Paypal Icon"
+          />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
           <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
@@ -196,8 +200,12 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoTwo() {
     return (
       <div className="flex flex-col items-center">
-        <div className="h-16 w-16 items-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <img src={paypalIcon} alt="Paypal Icon" />
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+          <img
+            className="h-full w-full object-contain"
+            src={paypalIcon}
+            alt="Paypal Icon"
+          />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
           <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
@@ -305,8 +313,12 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoThree() {
     return (
       <div className="flex flex-col items-center">
-        <div className="h-16 w-16 items-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <img src={paypalIcon} alt="Paypal Icon" />
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+          <img
+            className="h-full w-full object-contain"
+            src={paypalIcon}
+            alt="Paypal Icon"
+          />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full">
           <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
@@ -389,8 +401,12 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoFour() {
     return (
       <div className="flex flex-col items-center gap-6">
-        <div className="h-16 w-16 items-center rounded-full bg-red-100">
-          <img src={paypalIcon} alt="Paypal Icon" />
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+          <img
+            className="h-full w-full object-contain"
+            src={paypalIcon}
+            alt="Paypal Icon"
+          />
         </div>
         <div className="flex justify-between w-full">
           <h3
@@ -511,8 +527,12 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoFive() {
     return (
       <div className="flex flex-col items-center">
-        <div className="h-16 w-16 items-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <img src={paypalIcon} alt="Paypal Icon" />
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+          <img
+            className="h-full w-full object-contain"
+            src={paypalIcon}
+            alt="Paypal Icon"
+          />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
           <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
@@ -592,8 +612,12 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoSix() {
     return (
       <div className="flex flex-col items-center">
-        <div className="h-16 w-16 items-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <img src={paypalIcon} alt="Paypal Icon" />
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+          <img
+            className="h-full w-full object-contain"
+            src={paypalIcon}
+            alt="Paypal Icon"
+          />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
           <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">

@@ -130,7 +130,7 @@ export default function ApplePayInfotext() {
               </p>
             </div>
           </div>
-          <p className="mb-4">
+          <p className="my-4">
             Der gesamte Prozess der Kommunikation zwischen dem Händler und den
             Apple-Servern erfolgt über verschlüsselte Verbindungen (HTTPS) und
             unter Verwendung von Authentifizierungsmethoden, um die Sicherheit
