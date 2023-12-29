@@ -1,5 +1,4 @@
 import { useState } from "react";
-import shoppingCartIcon from "../../../assets/icons/shopping_cart.png";
 import paypalIcon from "../../../assets/images/payments/paypal.png";
 import paypalOne from "../../../assets/images/demoModals/paypal/paypal-1.png";
 import paypalTwo from "../../../assets/images/demoModals/paypal/paypal-2.png";
