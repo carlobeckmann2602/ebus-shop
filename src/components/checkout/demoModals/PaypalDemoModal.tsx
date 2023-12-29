@@ -11,10 +11,12 @@ import paypalSeven from "../../../assets/images/demoModals/paypal/paypal-7.png";
 import paypalEight from "../../../assets/images/demoModals/paypal/paypal-8.png";
 import paypalNine from "../../../assets/images/demoModals/paypal/paypal-9.png";
 import paypalTen from "../../../assets/images/demoModals/paypal/paypal-10.png";
+import { ShoppingCart } from "lucide-react";
 
 type PaypalDemoModalProps = {
   setShowPaypalDemoModal: (visibility: boolean) => void;
   afterModal: () => void;
+  totalCartValue: string;
 };
 
 export default function PaypalDemoModal(props: PaypalDemoModalProps) {
@@ -61,7 +63,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center gap-6">
         <h3
-          className="text-lg font-semibold leading-6 text-gray-900"
+          className="text-lg font-semibold leading-6 text-primary"
           id="modal-title"
         >
           Authentifizierung des Shops (Einschub zur Erklärung)
@@ -76,6 +78,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </p>
         <a href={paypalOne} target="_blank">
           <img
+            className="p-2 bg-white rounded-md"
             src={paypalOne}
             alt="Grafik die zeigt, wie Client ID und Secret über HTTPS an den PayPal Auth Service gesendet werden."
           />
@@ -88,6 +91,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </p>
         <a href={paypalTwo} target="_blank">
           <img
+            className="p-2 bg-white rounded-md"
             src={paypalTwo}
             alt="Grafik die zeigt, wie Client ID und Secret über HTTPS an den PayPal Auth Service gesendet werden."
           />
@@ -117,7 +121,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </div>
         <div className="flex flex-row justify-end gap-4">
           <span
-            onClick={() => previousPage()}
+            onClick={() => cancel()}
             className="btn btn-outline btn-primary"
           >
             Zurück
@@ -133,17 +137,14 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoOne() {
     return (
       <div className="flex flex-col items-center">
-        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
           <img
             className="h-full w-full object-contain"
             src={paypalIcon}
             alt="Paypal Icon"
           />
         </div>
-        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
-          <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
-            Paypal
-          </h3>
+        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center justify-center gap-16">
           <span className="loading loading-spinner text-primary scale-150"></span>
         </div>
       </div>
@@ -154,7 +155,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center gap-6">
         <h3
-          className="text-lg font-semibold leading-6 text-gray-900"
+          className="text-lg font-semibold leading-6 text-primary"
           id="modal-title"
         >
           Kommunikation mit der Orders API (Einschub zur Erklärung)
@@ -166,6 +167,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </p>
         <a href={paypalThree} target="_blank">
           <img
+            className="p-2 bg-white rounded-md"
             src={paypalThree}
             alt="Grafik die zeigt, wie Client ID und Secret über HTTPS an den PayPal Auth Service gesendet werden."
           />
@@ -178,6 +180,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </p>
         <a href={paypalFour} target="_blank">
           <img
+            className="p-2 bg-white rounded-md"
             src={paypalFour}
             alt="Grafik die zeigt, wie Client ID und Secret über HTTPS an den PayPal Auth Service gesendet werden."
           />
@@ -200,17 +203,14 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoTwo() {
     return (
       <div className="flex flex-col items-center">
-        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
           <img
             className="h-full w-full object-contain"
             src={paypalIcon}
             alt="Paypal Icon"
           />
         </div>
-        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
-          <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
-            Paypal
-          </h3>
+        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center justify-center gap-16">
           <span className="loading loading-spinner text-primary scale-150"></span>
         </div>
       </div>
@@ -221,7 +221,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center gap-6 ">
         <h3
-          className="text-lg font-semibold leading-6 text-gray-900"
+          className="text-lg font-semibold leading-6 text-primary"
           id="modal-title"
         >
           Authentifizierung des Nutzers (Einschub zur Erklärung)
@@ -235,6 +235,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </p>
         <a href={paypalFive} target="_blank">
           <img
+            className="p-2 bg-white rounded-md"
             src={paypalFive}
             alt="Grafik die zeigt, wie Nutzername und Passwort über HTTPS an den PayPal Auth Service gesendet werden."
           />
@@ -266,6 +267,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </p>
         <a href={paypalSix} target="_blank">
           <img
+            className="p-2 bg-white rounded-md"
             src={paypalSix}
             alt="Grafik die zeigt, der PayPal Server über HTTPS mit einem Session Token antwortet."
           />
@@ -313,7 +315,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoThree() {
     return (
       <div className="flex flex-col items-center">
-        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
           <img
             className="h-full w-full object-contain"
             src={paypalIcon}
@@ -321,9 +323,6 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
           />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full">
-          <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
-            Paypal
-          </h3>
           <div className="mt-2">
             <p className="text-base text-center text-gray-500">
               Bitte geben Sie (erfundene) Daten ein.
@@ -369,7 +368,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center gap-6 ">
         <h3
-          className="text-lg font-semibold leading-6 text-gray-900"
+          className="text-lg font-semibold leading-6 text-primary"
           id="modal-title"
         >
           Bestätigung der Zahlung (Einschub zur Erklärung)
@@ -401,7 +400,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoFour() {
     return (
       <div className="flex flex-col items-center gap-6">
-        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
           <img
             className="h-full w-full object-contain"
             src={paypalIcon}
@@ -409,15 +408,12 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
           />
         </div>
         <div className="flex justify-between w-full">
-          <h3
-            className="text-lg font-semibold leading-6 text-gray-900"
-            id="modal-title"
-          >
+          <h3 className="text-lg font-semibold leading-6" id="modal-title">
             Bezahlen mit
           </h3>
           <div className="flex">
-            <img src={shoppingCartIcon} alt="Shopping Cart Icon" />
-            <span className="text-xl">126,85 €</span>
+            <ShoppingCart className="mx-4" />
+            <span className="text-xl">{props.totalCartValue}</span>
           </div>
         </div>
         <div className="w-full">
@@ -460,7 +456,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center gap-6 ">
         <h3
-          className="text-lg font-semibold leading-6 text-gray-900"
+          className="text-lg font-semibold leading-6 text-primary"
           id="modal-title"
         >
           Verarbeitung der Zahlung (Einschub zur Erklärung)
@@ -472,6 +468,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </p>
         <a href={paypalSeven} target="_blank">
           <img
+            className="p-2 bg-white rounded-md"
             src={paypalSeven}
             alt="Grafik die zeigt, wie Nutzername und Passwort über HTTPS an den PayPal Auth Service gesendet werden."
           />
@@ -485,6 +482,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </p>
         <a href={paypalEight} target="_blank">
           <img
+            className="p-2 bg-white rounded-md"
             src={paypalEight}
             alt="Grafik die zeigt, wie Nutzername und Passwort über HTTPS an den PayPal Auth Service gesendet werden."
           />
@@ -527,17 +525,14 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoFive() {
     return (
       <div className="flex flex-col items-center">
-        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
           <img
             className="h-full w-full object-contain"
             src={paypalIcon}
             alt="Paypal Icon"
           />
         </div>
-        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
-          <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
-            Paypal
-          </h3>
+        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center justify-center gap-16">
           <span className="loading loading-spinner text-primary scale-150"></span>
         </div>
       </div>
@@ -548,7 +543,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
     return (
       <div className="flex flex-col items-center gap-6 ">
         <h3
-          className="text-lg font-semibold leading-6 text-gray-900"
+          className="text-lg font-semibold leading-6 text-primary"
           id="modal-title"
         >
           Abschließende Bestätigung (Einschub zur Erklärung)
@@ -579,6 +574,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </div>
         <a href={paypalNine} target="_blank">
           <img
+            className="p-2 bg-white rounded-md"
             src={paypalNine}
             alt="Grafik die zeigt, wie Nutzername und Passwort über HTTPS an den PayPal Auth Service gesendet werden."
           />
@@ -590,6 +586,7 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
         </p>
         <a href={paypalTen} target="_blank">
           <img
+            className="p-2 bg-white rounded-md"
             src={paypalTen}
             alt="Grafik die zeigt, wie Nutzername und Passwort über HTTPS an den PayPal Auth Service gesendet werden."
           />
@@ -612,17 +609,14 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
   function demoSix() {
     return (
       <div className="flex flex-col items-center">
-        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
+        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
           <img
             className="h-full w-full object-contain"
             src={paypalIcon}
             alt="Paypal Icon"
           />
         </div>
-        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center gap-16">
-          <h3 className="text-lg text-center font-semibold leading-6 text-gray-900 w-full">
-            Paypal
-          </h3>
+        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center justify-center gap-16">
           <span className="loading loading-spinner text-primary scale-150"></span>
         </div>
       </div>
@@ -639,8 +633,8 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
       <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div className="flex min-h-full items-end justify-evenly p-4 text-center sm:items-center sm:p-0">
-          <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-1/3">
-            <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+          <div className="relative transform overflow-hidden rounded-lg bg-base-100 text-left shadow-xl transition-all w-1/3">
+            <div className="bg-base-100 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
               <span
                 className="absolute p-4 right-0 top-0 cursor-pointer"
                 onClick={() => cancel()}
@@ -650,8 +644,8 @@ export default function PaypalDemoModal(props: PaypalDemoModalProps) {
               {ALL_DEMOS[activeStep]}
             </div>
           </div>
-          <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-1/2">
-            <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+          <div className="relative transform overflow-hidden rounded-lg bg-primary-content text-left shadow-xl transition-all w-1/2">
+            <div className="bg-primary-content px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
               {ALL_STEPS[activeStep]}
             </div>
           </div>

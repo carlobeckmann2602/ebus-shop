@@ -30,6 +30,16 @@ export default function Checkout(props: CheckoutProps) {
   const [showPaypalDemoModal, setShowPaypalDemoModal] = useState(false);
   const [showApplePayDemoModal, setShowApplePayDemoModal] = useState(false);
 
+  const [totalCartValue] = useState(
+    props.cartItems
+      .reduce(
+        (accumulator, item) =>
+          accumulator + parseFloat(item.price) * item.quantity,
+        0
+      )
+      .toFixed(2) + " €"
+  );
+
   const navigate = useNavigate();
 
   function onPaymentSelected(type: PaymentType) {
@@ -137,6 +147,7 @@ export default function Checkout(props: CheckoutProps) {
               <PaypalDemoModal
                 setShowPaypalDemoModal={setShowPaypalDemoModal}
                 afterModal={continueToOverview}
+                totalCartValue={totalCartValue}
               />
             ) : (
               ""
@@ -145,15 +156,7 @@ export default function Checkout(props: CheckoutProps) {
               <ApplePayDemoModal
                 setShowApplePayDemoModal={setShowApplePayDemoModal}
                 afterModal={continueToOverview}
-                totalValue={
-                  props.cartItems
-                    .reduce(
-                      (accumulator, item) =>
-                        accumulator + parseFloat(item.price) * item.quantity,
-                      0
-                    )
-                    .toFixed(2) + " €"
-                }
+                totalCartValue={totalCartValue}
               />
             ) : (
               ""

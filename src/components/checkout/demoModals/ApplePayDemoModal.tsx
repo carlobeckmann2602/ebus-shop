@@ -6,7 +6,7 @@ import TouchIdCheck from "../../../assets/images/demoModals/apple-pay/touch-id-c
 type ApplePayDemoModalProps = {
   setShowApplePayDemoModal: (visibility: boolean) => void;
   afterModal: () => void;
-  totalValue: string;
+  totalCartValue: string;
 };
 
 export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
@@ -87,7 +87,7 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
           <img
             className="h-full w-full object-contain"
             src={ApplePayIcon}
-            alt="Paypal Icon"
+            alt="Apple Pay Icon"
           />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center justify-center gap-16">
@@ -126,7 +126,11 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
     return (
       <div className="flex flex-col items-center">
         <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
-          <img src={ApplePayIcon} alt="Paypal Icon" />
+          <img
+            className="h-full w-full object-contain"
+            src={ApplePayIcon}
+            alt="Apple Pay Icon"
+          />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full flex flex-col items-center justify-center gap-4 py-4">
           <select className="select select-bordered select-lg w-full">
@@ -138,7 +142,7 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
           </select>
           <div className="w-full">
             <p>E-Bus Shop bezahlen</p>
-            <span className="text-2xl font-bold">{props.totalValue}</span>
+            <span className="text-2xl font-bold">{props.totalCartValue}</span>
           </div>
           <span onClick={() => nextPage()} className="cursor-pointer">
             <img
@@ -181,7 +185,11 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
     return (
       <div className="flex flex-col items-center">
         <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
-          <img src={ApplePayIcon} alt="Paypal Icon" />
+          <img
+            className="h-full w-full object-contain"
+            src={ApplePayIcon}
+            alt="Apple Pay Icon"
+          />
         </div>
         <div className="mt-3 text-center sm:mt-0 sm:text-left w-full flex flex-col items-center justify-center gap-4 py-4">
           <select className="select select-bordered select-lg w-full">
@@ -193,7 +201,7 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
           </select>
           <div className="w-full">
             <p>E-Bus Shop bezahlen</p>
-            <span className="text-2xl font-bold">{props.totalValue}</span>
+            <span className="text-2xl font-bold">{props.totalCartValue}</span>
           </div>
           <img
             className="h-10 w-10 object-contain"
@@ -226,8 +234,8 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
               {ALL_DEMOS[activeStep]}
             </div>
           </div>
-          <div className="relative transform overflow-hidden rounded-lg bg-base-100 text-left shadow-xl transition-all w-1/2">
-            <div className="bg-base-100 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+          <div className="relative transform overflow-hidden rounded-lg bg-primary-content text-left shadow-xl transition-all w-1/2">
+            <div className="bg-primary-content px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
               {ALL_STEPS[activeStep]}
             </div>
           </div>
