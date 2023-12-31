@@ -9,9 +9,9 @@ type GooglePayDemoModalProps = {
 
 export default function GooglePayDemoModal(props: GooglePayDemoModalProps) {
   const [activeStep, setActiveStep] = useState<number>(0);
-  const ALL_STEPS = [stepOne(), stepTwo(), stepThree(), stepFour(), stepFive()];
+  const ALL_STEPS = [stepOne(), stepTwo(), stepThree()];
 
-  const ALL_DEMOS = [demoOne(), demoTwo(), demoThree(), demoFour(), demoFive()];
+  const ALL_DEMOS = [demoOne(), demoTwo(), demoThree()];
 
   function cancel() {
     props.setShowGooglePayDemoModal(false);
@@ -103,7 +103,7 @@ export default function GooglePayDemoModal(props: GooglePayDemoModalProps) {
 
   function demoTwo() {
     return (
-      <div className="flex flex-col items-center min-h-[16rem]">
+      <div className="flex flex-col items-center min-h-[16rem] gap-6">
         <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
           <img
             className="h-full w-full object-contain"
@@ -111,13 +111,30 @@ export default function GooglePayDemoModal(props: GooglePayDemoModalProps) {
             alt="Google Pay Icon"
           />
         </div>
-        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full flex flex-col grow items-center justify-center gap-8 py-4">
+        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full flex flex-col grow gap-2">
+          Zahlungsmethode:
           <select className="select select-primary select-bordered select-lg w-full">
             <option selected>Comdirect Visa</option>
             <option>DKB Mastercard</option>
             <option>American Express</option>
           </select>
-          <span className="loading loading-spinner text-primary scale-150 grow"></span>
+          Lieferadresse:
+          <select className="select select-primary select-bordered select-lg w-full">
+            <option selected>
+              Max Mustermann, Musterstraße 4, Musterstadt
+            </option>
+            <option>Neu anlegen</option>
+          </select>
+          Versandart:
+          <select className="select select-primary select-bordered select-lg w-full">
+            <option selected>Standrad Versand (3-4 Werktage)</option>
+            <option>Express Versand (innerhalb 1 Werktag)</option>
+          </select>
+        </div>
+        <div className="flex flex-row justify-end gap-4">
+          <span onClick={() => nextPage()} className="btn btn-primary">
+            Bezahlen
+          </span>
         </div>
       </div>
     );
@@ -140,8 +157,8 @@ export default function GooglePayDemoModal(props: GooglePayDemoModalProps) {
           >
             Zurück
           </span>
-          <span onClick={() => nextPage()} className="btn btn-primary">
-            Weiter
+          <span onClick={() => finishModal()} className="btn btn-primary">
+            Demonstration schließen
           </span>
         </div>
       </div>
@@ -158,119 +175,8 @@ export default function GooglePayDemoModal(props: GooglePayDemoModalProps) {
             alt="Google Pay Icon"
           />
         </div>
-        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full flex flex-col items-center justify-center gap-4 py-4">
-          <select className="select select-bordered select-lg w-full">
-            <option selected>Comdirect Visa</option>
-            <option>DKB Mastercard</option>
-            <option>American Express</option>
-          </select>
-          <div className="w-full">
-            <p>E-Bus Shop bezahlen</p>
-            <span className="text-2xl font-bold">{props.totalCartValue}</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  function stepFour() {
-    return (
-      <div className="flex flex-col items-center gap-6">
-        <h3
-          className="text-lg font-semibold leading-6 text-primary"
-          id="modal-title"
-        >
-          Autorisierung der Transaktion & Übermittlung der Transaktionsdaten
-        </h3>
-
-        <div className="flex flex-row justify-end gap-4">
-          <span
-            onClick={() => previousPage()}
-            className="btn btn-outline btn-primary"
-          >
-            Zurück
-          </span>
-          <span onClick={() => nextPage()} className="btn btn-primary">
-            Weiter
-          </span>
-        </div>
-      </div>
-    );
-  }
-
-  function demoFour() {
-    return (
-      <div className="flex flex-col items-center min-h-[16rem]">
-        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
-          <img
-            className="h-full w-full object-contain"
-            src={GooglePayIcon}
-            alt="Google Pay Icon"
-          />
-        </div>
-        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full flex flex-col items-center justify-center gap-4 py-4">
-          <select className="select select-bordered select-lg w-full" disabled>
-            <option selected>Comdirect Visa</option>
-            <option>DKB Mastercard</option>
-            <option>American Express</option>
-          </select>
-          <div className="w-full">
-            <p>E-Bus Shop bezahlen</p>
-            <span className="text-2xl font-bold">{props.totalCartValue}</span>
-          </div>
-          <span onClick={() => nextPage()} className="cursor-pointer">
-            <span className="loading loading-spinner text-red-500 scale-150"></span>
-          </span>
-        </div>
-      </div>
-    );
-  }
-
-  function stepFive() {
-    return (
-      <div className="flex flex-col items-center gap-6">
-        <h3
-          className="text-lg font-semibold leading-6 text-primary"
-          id="modal-title"
-        >
-          Transaktion beim Zahlungsnetzwerk durchführen
-        </h3>
-
-        <div className="flex flex-row justify-end gap-4">
-          <span
-            onClick={() => previousPage()}
-            className="btn btn-outline btn-primary"
-          >
-            Zurück
-          </span>
-          <span onClick={() => finishModal()} className="btn btn-primary">
-            Demonstration schließen
-          </span>
-        </div>
-      </div>
-    );
-  }
-
-  function demoFive() {
-    return (
-      <div className="flex flex-col items-center min-h-[16rem]">
-        <div className="flex h-16 w-32 px-4 py-1 items-center justify-center align-middle rounded-full bg-white border-2 border-primary sm:mx-0 sm:h-10 sm:w-20">
-          <img
-            className="h-full w-full object-contain"
-            src={GooglePayIcon}
-            alt="Google Pay Icon"
-          />
-        </div>
-        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full flex flex-col items-center justify-center gap-4 py-4">
-          <select className="select select-bordered select-lg w-full" disabled>
-            <option selected>Comdirect Visa</option>
-            <option>DKB Mastercard</option>
-            <option>American Express</option>
-          </select>
-          <div className="w-full">
-            <p>E-Bus Shop bezahlen</p>
-            <span className="text-2xl font-bold">{props.totalCartValue}</span>
-          </div>
+        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full flex flex-col grow items-center justify-center gap-16">
+          <span className="loading loading-spinner text-primary scale-150"></span>
         </div>
       </div>
     );
