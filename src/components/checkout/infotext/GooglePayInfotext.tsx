@@ -79,7 +79,7 @@ export default function GooglePayInfotext() {
             className="collapse bg-primary text-primary-content mb-2"
           >
             <div className="collapse-title text-xl font-medium">
-              3. Kommunikation mit der Bank:
+              3. Kommunikation mit der Bank
             </div>
             <div className="collapse-content">
               <p>
@@ -95,7 +95,7 @@ export default function GooglePayInfotext() {
             className="collapse bg-primary text-primary-content mb-2"
           >
             <div className="collapse-title text-xl font-medium">
-              4. Bestätigung an den Verkäufer:
+              4. Bestätigung an den Verkäufer
             </div>
             <div className="collapse-content">
               <p>

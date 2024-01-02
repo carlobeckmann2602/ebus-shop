@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GooglePayIcon from "../../../assets/images/payments/google-pay.png";
+import googlepayOne from "../../../assets/images/demoModals/google-pay/google_pay-1.png";
 
 type GooglePayDemoModalProps = {
   setShowGooglePayDemoModal: (visibility: boolean) => void;
@@ -43,7 +44,12 @@ export default function GooglePayDemoModal(props: GooglePayDemoModalProps) {
           Authentifizierung des Shops und sichere Verbindung (Einschub zur
           Erklärung)
         </h3>
-
+        <p>
+          Der gesamte Prozess der Kommunikation zwischen dem Händler und den
+          Google-Servern erfolgt über verschlüsselte Verbindungen (HTTPS) und
+          unter Verwendung von Authentifizierungsmethoden, um die Sicherheit der
+          übermittelten Daten zu gewährleisten.
+        </p>
         <div className="flex flex-row justify-end gap-4">
           <span
             onClick={() => cancel()}
@@ -83,9 +89,37 @@ export default function GooglePayDemoModal(props: GooglePayDemoModalProps) {
           className="text-lg font-semibold leading-6 text-primary"
           id="modal-title"
         >
-          Kreditkarte für Google Pay hinterlegen
+          Hinterlegte Kreditkarten und Adressen für Google Pay
         </h3>
-
+        <p>
+          Wenn sie Google Pay verwenden, wird ein Dialogfeld angezeigt, in dem
+          ihre hinterlegten Zahlungsmethoden, wie Kreditkarte, Debitkarte oder
+          auch PayPal, aufgelistet sind. Dies ermöglicht es ihnen, die
+          gewünschte Zahlungsmethode für ihre Transaktion auszuwählen.
+        </p>
+        <p>
+          Zusätzlich zu den Zahlungsmethoden werden auch ihre hinterlegten
+          Adressen zur Auswahl angezeigt. Um den Versandpreis basierend auf den
+          hinterlegten Adressen berechnen zu können, haben sie am Ende die
+          Möglichkeit, die Versandart auszuwählen.
+        </p>
+        <p>
+          Es ist wichtig zu beachten, dass alle diese Daten auf dem Google Pay
+          Server gespeichert und von dort abgerufen werden. Dabei werden, aber
+          nie die richtigen Kartendaten gespeichert, sondern Goole erstellt
+          einen Token oder virtuelle Kartennummer über welche die Transaktion
+          abgewickelt wird. Dies stellt sicher, dass ihre Informationen sicher
+          und geschützt sind.
+        </p>
+        <p>
+          Schließlich, um die Transaktion zu bestätigen, müssen sie diese
+          mittels biometrischer Daten oder PIN bestätigen, falls sie sich auf
+          einem Google-Gerät befinden. Dies bietet eine zusätzliche
+          Sicherheitsmaßnahme, um sicherzustellen, dass nur sie Zugriff auf ihre
+          Zahlungsinformationen haben und Transaktionen autorisieren können.
+          Dies trägt dazu bei, die Sicherheit ihrer Transaktionen mit Google Pay
+          zu gewährleisten.
+        </p>
         <div className="flex flex-row justify-end gap-4">
           <span
             onClick={() => previousPage()}
@@ -147,9 +181,27 @@ export default function GooglePayDemoModal(props: GooglePayDemoModalProps) {
           className="text-lg font-semibold leading-6 text-primary"
           id="modal-title"
         >
-          Google Pay-Tansaktionsdialog
+          Bestätigte Transaktion übermitteln (Einschub zur Erklärung)
         </h3>
-
+        <p>
+          Nachdem sie die Zahlung autorisiert haben, sendet Google Pay die
+          Zahlungsanforderung zusammen mit dem Token an ihre Bank. Ihre Bank
+          verarbeitet die Anfrage und sendet die Transaktionsdetails an Google
+          Pay.
+        </p>
+        <p>
+          Sobald die Transaktion von ihrer Bank genehmigt wurde, sendet Google
+          Pay eine Bestätigung an den Verkäufer, dass die Zahlung erfolgreich
+          war. Der Verkäufer erhält das Geld von ihrer Bank, nicht von Google
+          Pay.
+        </p>
+        <a href={googlepayOne} target="_blank">
+          <img
+            className="p-2 bg-white rounded-md"
+            src={googlepayOne}
+            alt="Grafik die zeigt, eine Kreditkarte in Apple Pay angelegt wird."
+          />
+        </a>
         <div className="flex flex-row justify-end gap-4">
           <span
             onClick={() => previousPage()}
