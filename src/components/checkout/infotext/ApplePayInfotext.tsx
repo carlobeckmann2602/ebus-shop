@@ -47,7 +47,7 @@ export default function ApplePayInfotext() {
             </div>
             <div className="collapse-content">
               <p>
-                Wenn du eine Zahlung mit Apple Pay durchführst, sendet dein
+                Wenn sie eine Zahlung mit Apple Pay durchführen, sendet ihr
                 Gerät eine verschlüsselte Version der Transaktionsdaten an Apple
                 Pay.
               </p>
@@ -79,8 +79,8 @@ export default function ApplePayInfotext() {
             <div className="collapse-content">
               <p>
                 Die doppelt verschlüsselten Transaktionsdaten werden dann an den
-                Entwickler der App oder an den Zahlungsabwickler gesendet. Es
-                ist wichtig zu beachten, dass die Domain, an die die Daten
+                Entwickler der Website oder an den Zahlungsabwickler gesendet.
+                Es ist wichtig zu beachten, dass die Domain, an die die Daten
                 gesendet werden, immer verifiziert werden muss, um
                 sicherzustellen, dass die Daten den richtigen Empfänger
                 erreichen.
@@ -96,12 +96,12 @@ export default function ApplePayInfotext() {
             </div>
             <div className="collapse-content">
               <p>
-                Zusammen mit den Transaktionsdaten sendet Apple Pay auch deine
+                Zusammen mit den Transaktionsdaten sendet Apple Pay auch ihre
                 Geräte-Accountnummer und einen transaktionsspezifischen,
                 dynamischen Sicherheitscode an die App oder Website. Weder Apple
-                noch dein Gerät senden die tatsächliche Nummer deiner
-                Zahlungskarte an die App. Dadurch wird sichergestellt, dass
-                deine Kartendaten sicher bleiben.
+                noch ihr Gerät senden die tatsächliche Nummer ihrer
+                Zahlungskarte an die Website. Dadurch wird sichergestellt, dass
+                ihre Kartendaten sicher bleiben.
               </p>
             </div>
           </div>
@@ -116,17 +116,17 @@ export default function ApplePayInfotext() {
               <p>
                 Wenn die Transaktion auf einem anderen Apple Gerät autorisiert
                 wird, kommunizieren das Gerät, auf dem die Transaktion initiiert
-                wurde (z. B. dein Mac), und das Gerät, das zur Autorisierung
-                verwendet wird (z. B. dein iPhone oder deine Apple Watch), über
+                wurde (z. B. ihr Mac), und das Gerät, das zur Autorisierung
+                verwendet wird (z. B. ihr iPhone oder ihre Apple Watch), über
                 einen verschlüsselten Kanal auf den Apple Servern. Dadurch wird
                 sichergestellt, dass die Kommunikation zwischen den Geräten
                 sicher ist und die Transaktionsdaten nicht abgefangen werden
-                können.Apple bewahrt anonymisierte Transaktionsdaten auf,
-                darunter der ungefähre Kaufbetrag, der Name des App-Entwicklers
-                und der App, das ungefähre Datum und die ungefähre Uhrzeit sowie
-                die Angabe, ob die Transaktion erfolgreich abgeschlossen wurde.
-                Apple nutzt diese Daten zur Verbesserung von Apple Pay und
-                anderen Produkten und Diensten.
+                können. Apple bewahrt anonymisierte Transaktionsdaten auf,
+                darunter der ungefähre Kaufbetrag, der Name des
+                Webseiten-Entwicklers und der Website, das ungefähre Datum und
+                die ungefähre Uhrzeit sowie die Angabe, ob die Transaktion
+                erfolgreich abgeschlossen wurde. Apple nutzt diese Daten zur
+                Verbesserung von Apple Pay und anderen Produkten und Diensten.
               </p>
             </div>
           </div>

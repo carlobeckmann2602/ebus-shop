@@ -47,10 +47,10 @@ export default function GooglePayInfotext() {
             </div>
             <div className="collapse-content">
               <p>
-                Wenn du auf die Schaltfläche “Google Pay” klickst, wird ein
-                Zahlungsblatt angezeigt, das die in deinem Google-Konto
+                Wenn sie auf die Schaltfläche “Google Pay” klicken, wird ein
+                Zahlungsblatt angezeigt, das die in ihrem Google-Konto
                 gespeicherten Zahlungsmethoden sowie optionale Felder wie ein
-                Versandadressfeld anzeigt. Du kannst schnell eine
+                Versandadressfeld anzeigt. Sie können schnell eine
                 Zahlungsmethode auswählen, eine optionale Versandadresse
                 hinzufügen oder neue Informationen hinzufügen.
               </p>
@@ -66,10 +66,10 @@ export default function GooglePayInfotext() {
             <div className="collapse-content">
               <p>
                 Google Pay verwendet ein Verfahren namens Tokenisierung, um die
-                Sicherheit zu erhöhen. Anstatt deine tatsächliche Kartennummer
+                Sicherheit zu erhöhen. Anstatt ihrer tatsächliche Kartennummer
                 zu verwenden, erstellt Google Pay eine verschlüsselte Version
-                deiner Karteninformationen, die als “Token” bezeichnet wird.
-                Dieser Token wird anstelle deiner tatsächlichen
+                ihrer Karteninformationen, die als “Token” bezeichnet wird.
+                Dieser Token wird anstelle ihrer tatsächlichen
                 Karteninformationen verwendet, um Zahlungen zu autorisieren.
               </p>
             </div>
@@ -83,8 +83,8 @@ export default function GooglePayInfotext() {
             </div>
             <div className="collapse-content">
               <p>
-                Nachdem du die Zahlung autorisiert hast, sendet Google Pay die
-                Zahlungsanforderung zusammen mit dem Token an deine Bank. Deine
+                Nachdem Sie die Zahlung autorisiert haben, sendet Google Pay die
+                Zahlungsanforderung zusammen mit dem Token an ihre Bank. Ihre
                 Bank verarbeitet die Anfrage und sendet die Transaktionsdetails
                 an Google Pay.
               </p>
@@ -99,9 +99,9 @@ export default function GooglePayInfotext() {
             </div>
             <div className="collapse-content">
               <p>
-                Sobald die Transaktion von deiner Bank genehmigt wurde, sendet
+                Sobald die Transaktion von ihrer Bank genehmigt wurde, sendet
                 Google Pay eine Bestätigung an den Verkäufer, dass die Zahlung
-                erfolgreich war. Der Verkäufer erhält das Geld von deiner Bank,
+                erfolgreich war. Der Verkäufer erhält das Geld von ihrer Bank,
                 nicht von Google Pay.
               </p>
             </div>

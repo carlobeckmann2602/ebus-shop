@@ -58,14 +58,14 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
         <p>
           Außerdem muss Apple ein TLS-Client-Zertifikat ausstellen. Dieses
           Zertifikat ist ein wichtiger Teil der Sicherheitsinfrastruktur von
-          Apple Pay. Es stellt sicher, dass die Kommunikation zwischen deinem
-          Gerät und den Apple-Servern sicher ist und dass deine
+          Apple Pay. Es stellt sicher, dass die Kommunikation zwischen ihrem
+          Gerät und den Apple-Servern sicher ist und dass ihre
           Zahlungsinformationen während der Transaktion geschützt sind.
         </p>
         <p>
           Schließlich müssen alle Inhalte über HTTPS übertragen werden. HTTPS
           ist ein sicheres Kommunikationsprotokoll, das sicherstellt, dass die
-          Daten, die zwischen deinem Gerät und der Website ausgetauscht werden,
+          Daten, die zwischen ihrem Gerät und der Website ausgetauscht werden,
           verschlüsselt und somit vor potenziellen Hackern geschützt sind.
         </p>
         <div className="flex flex-row justify-end gap-4">
@@ -110,23 +110,23 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
           Kreditkarte für Apple Pay hinterlegen
         </h3>
         <p>
-          Wenn du eine Karte zu Apple Pay hinzufügst, werden die Kartendaten
+          Wenn sie eine Karte zu Apple Pay hinzufügen, werden die Kartendaten
           verschlüsselt an Apple gesendet. Apple entschlüsselt die Daten,
-          bestimmt das Zahlungsnetzwerk deiner Karte und verschlüsselt die Daten
-          erneut. Diese verschlüsselten Daten können nur von deinem
+          bestimmt das Zahlungsnetzwerk ihrer Karte und verschlüsselt die Daten
+          erneut. Diese verschlüsselten Daten können nur von ihrem
           Zahlungsnetzwerk entschlüsselt werden.
         </p>
         <p>
-          Apple kann bestimmte Informationen und Daten über die Nutzung deines
-          Geräts verwenden, um zu prüfen, ob du für Apple Pay qualifiziert bist.
-          Apple kann auch Daten an deinen Kartenaussteller oder dein
-          Zahlungsnetzwerk senden, um zu überprüfen, ob deine Karte für Apple
-          Pay geeignet ist.
+          Apple kann bestimmte Informationen und Daten über die Nutzung ihres
+          Geräts verwenden, um zu prüfen, ob sie für Apple Pay qualifiziert
+          sind. Apple kann auch Daten an ihren Kartenaussteller oder ihr
+          Zahlungsnetzwerk senden, um zu überprüfen, ob ihre Karte für Apple Pay
+          geeignet ist.
         </p>
         <p>
-          Nachdem deine Karte genehmigt wurde, erstellt deine Bank oder dein
+          Nachdem ihre Karte genehmigt wurde, erstellt ihre Bank oder ihr
           Kartenaussteller eine gerätespezifische Nummer, verschlüsselt sie und
-          sendet sie an Apple. Diese Nummer wird sicher auf deinem Gerät
+          sendet sie an Apple. Diese Nummer wird sicher auf ihrem Gerät
           gespeichert und kann von Apple nicht entschlüsselt werden.
         </p>
         <a href={applepayOne} target="_blank">
@@ -209,7 +209,7 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
         <p>
           Zu diesem Zeitpunkt erhält die Website die Adressdaten, um die
           Versandkosten berechnen zu können. Erst wenn der Nutzer die Zahlung
-          per Face ID, Touch ID oder Code bestätigt, erhält die App alle
+          per Face ID, Touch ID oder Code bestätigt, erhält die Website alle
           Informationen. Erst nach erfolgter Autorisierung werden die
           Informationen der Apple Pay Transaktion an den Händler übermittelt.
         </p>
@@ -218,10 +218,10 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
         </h4>
         <p>
           Apple Pay verwendet einen Prozess namens “Handoff”, um Zahlungen
-          zwischen deinem Mac und deinem iPhone oder deiner Apple Watch zu
+          zwischen ihrem Mac und ihrem iPhone oder ihrer Apple Watch zu
           autorisieren. Dabei werden verschlüsselte Informationen ausgetauscht,
-          die nur von deinem Zahlungsnetzwerk entschlüsselt werden können. Nach
-          der Autorisierung wird ein verschlüsselter “Zahlungs-Token” an deinen
+          die nur von ihrem Zahlungsnetzwerk entschlüsselt werden können. Nach
+          der Autorisierung wird ein verschlüsselter “Zahlungs-Token” an ihren
           Mac gesendet und dann dem Händler zur Verfügung gestellt. Dieser
           Prozess kann nur stattfinden, wenn sich die Geräte in unmittelbarer
           Nähe zueinander befinden.
@@ -291,8 +291,8 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
         </h3>
         <ol className="list-decimal pl-6">
           <li>
-            <b>Verschlüsselte Transaktion empfangen:</b> Wenn du eine Zahlung
-            mit Apple Pay durchführst, sendet dein Gerät eine verschlüsselte
+            <b>Verschlüsselte Transaktion empfangen:</b> Wenn sie eine Zahlung
+            mit Apple Pay durchführst, sendet ihr Gerät eine verschlüsselte
             Version der Transaktionsdaten an Apple Pay. Die Daten zur
             Transaktion werden dabei mit einem Nonce, welches vorher von dem
             Apple Pay-Server erhalten wird, im Secure-Element verschlüsselt.
@@ -334,7 +334,7 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
               Übertragung der Geräte-Accountnummer (DAN) und des
               Sicherheitscodes:
             </b>{" "}
-            Zusammen mit den Transaktionsdaten sendet Apple Pay auch deine
+            Zusammen mit den Transaktionsdaten sendet Apple Pay auch ihre
             Geräte-Accountnummer (DAN) und einen transaktionsspezifischen,
             dynamischen Sicherheitscode an die Website.
           </li>
@@ -353,9 +353,9 @@ export default function ApplePayDemoModal(props: ApplePayDemoModalProps) {
               />
             </svg>
             <span>
-              Weder Apple noch dein Gerät senden die tatsächliche Nummer deiner
+              Weder Apple noch ihr Gerät senden die tatsächliche Nummer ihrer
               Zahlungskarte an die Website. Dadurch wird sichergestellt, dass
-              deine Kartendaten sicher bleiben.
+              ihre Kartendaten sicher bleiben.
             </span>
           </div>
         </ol>
