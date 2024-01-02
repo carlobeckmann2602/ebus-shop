@@ -6,7 +6,7 @@ export default function ApplePayOverview() {
     <OverviewLayout
       title={PaymentType.ApplePay}
       content={
-        <div>
+        <>
           <p>
             Apple Pay ist im Vergleich zu vielen anderen Online-Zahlungsmethoden
             sehr sicher. Die Gründe dafür sind{" "}
@@ -59,7 +59,7 @@ export default function ApplePayOverview() {
             sicher ist und dass die Nutzer stets wachsam sein sollten, um ihre
             persönlichen Daten zu schützen.
           </p>
-        </div>
+        </>
       }
     />
   );
