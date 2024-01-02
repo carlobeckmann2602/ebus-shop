@@ -16,6 +16,7 @@ import IntroText from "../components/checkout/infotext/IntroText.tsx";
 import { useNavigate } from "react-router-dom";
 import PaypalDemoModal from "../components/checkout/demoModals/PaypalDemoModal.tsx";
 import ApplePayDemoModal from "../components/checkout/demoModals/ApplePayDemoModal.tsx";
+import GooglePayDemoModal from "../components/checkout/demoModals/GooglePayDemoModal.tsx";
 
 type CheckoutProps = {
   cartItems: CartItem[];
@@ -29,6 +30,7 @@ export default function Checkout(props: CheckoutProps) {
   );
   const [showPaypalDemoModal, setShowPaypalDemoModal] = useState(false);
   const [showApplePayDemoModal, setShowApplePayDemoModal] = useState(false);
+  const [showGooglePayDemoModal, setShowGooglePayDemoModal] = useState(false);
 
   const [totalCartValue] = useState(
     props.cartItems
@@ -56,6 +58,10 @@ export default function Checkout(props: CheckoutProps) {
       case PaymentType.ApplePay:
         console.log("Apple Pay");
         setShowApplePayDemoModal(true);
+        break;
+      case PaymentType.GooglePay:
+        console.log("Google Pay");
+        setShowGooglePayDemoModal(true);
         break;
       default:
         continueToOverview();
@@ -155,6 +161,15 @@ export default function Checkout(props: CheckoutProps) {
             {showApplePayDemoModal ? (
               <ApplePayDemoModal
                 setShowApplePayDemoModal={setShowApplePayDemoModal}
+                afterModal={continueToOverview}
+                totalCartValue={totalCartValue}
+              />
+            ) : (
+              ""
+            )}
+            {showGooglePayDemoModal ? (
+              <GooglePayDemoModal
+                setShowGooglePayDemoModal={setShowGooglePayDemoModal}
                 afterModal={continueToOverview}
                 totalCartValue={totalCartValue}
               />

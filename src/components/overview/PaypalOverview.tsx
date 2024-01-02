@@ -6,7 +6,7 @@ export default function PaypalOverview() {
     <OverviewLayout
       title={PaymentType.PayPal}
       content={
-        <div>
+        <>
           <p>
             Der Bezahlvorgang über PayPal kann als vergleichsweise sicher
             betrachtet werden. Das hängt mit der Nutzerauthentifizierung und der
@@ -26,7 +26,7 @@ export default function PaypalOverview() {
             Onlinehändler geben hier stets Daten an, die beispielsweise durch
             einen simplen Anruf geprüft werden können.
           </p>
-        </div>
+        </>
       }
     />
   );

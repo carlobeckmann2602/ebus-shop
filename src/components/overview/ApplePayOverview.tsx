@@ -6,7 +6,7 @@ export default function ApplePayOverview() {
     <OverviewLayout
       title={PaymentType.ApplePay}
       content={
-        <div>
+        <>
           <p>
             Apple Pay ist im Vergleich zu vielen anderen Online-Zahlungsmethoden
             sehr sicher. Die Gründe dafür sind{" "}
@@ -30,17 +30,17 @@ export default function ApplePayOverview() {
             </li>
             <br />
             <li>
-              <b>Datenschutz:</b> Obwohl Apple Metadaten über deine
-              Transaktionen erhält, speichert Apple die originalen Kartennummern
-              nicht und hat auch keinen Zugriff darauf. Dadurch werden deine
-              persönlichen Zahlungsinformationen geschützt.
+              <b>Datenschutz:</b> Obwohl Apple Metadaten über ihre Transaktionen
+              erhält, speichert Apple die originalen Kartennummern nicht und hat
+              auch keinen Zugriff darauf. Dadurch werden ihre persönlichen
+              Zahlungsinformationen geschützt.
             </li>
             <br />
             <li>
               <b>Unterstützung durch Zahlungsnetzwerke:</b> Apple Pay
-              funktioniert nur, wenn dein Zahlungsnetzwerk das Verfahren
+              funktioniert nur, wenn ihr Zahlungsnetzwerk das Verfahren
               unterstützt. Dadurch wird sichergestellt, dass die Transaktionen
-              den Sicherheitsstandards deines Zahlungsnetzwerks entsprechen.
+              den Sicherheitsstandards ihres Zahlungsnetzwerks entsprechen.
             </li>
             <br />
             <li>
@@ -59,7 +59,7 @@ export default function ApplePayOverview() {
             sicher ist und dass die Nutzer stets wachsam sein sollten, um ihre
             persönlichen Daten zu schützen.
           </p>
-        </div>
+        </>
       }
     />
   );
