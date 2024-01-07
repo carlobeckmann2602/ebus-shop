@@ -8,6 +8,8 @@ import CreditCardPlayerIcon from "../../../assets/images/demoModals/credit-card/
 import CreditCardScaIcon from "../../../assets/images/demoModals/credit-card/credit-card-sca.webp";
 
 import PaymentIcon from "../PaymentIcon";
+import CreditCardPaymentForm from "../CreditCardPaymentForm";
+import CreditCardSmsTanIcon from "../../../assets/images/demoModals/credit-card/credit-card-sms-tan.png";
 
 type CreditCardDemoModalProps = {
   setShowDemoModal: (visibility: boolean) => void;
@@ -31,11 +33,11 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
 
   const ALL_DEMOS = [
     demoOne(),
+    demoDataBetweenCostumerAndMerchant(),
     demoOne(),
     demoOne(),
     demoOne(),
-    demoOne(),
-    demoOne(),
+    demo3DSecure(),
     demoOne(),
     demoOne(),
   ];
@@ -106,7 +108,7 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           <PaymentIcon url={MastercardIcon} />
           <PaymentIcon url={MaestroIcon} />
         </div>
-        <div className="mt-3 text-center sm:mt-0 sm:text-left w-full h-48 flex flex-col items-center justify-center gap-16">
+        <div className="my-3 text-center sm:mt-0 sm:text-left w-full min-h-[212px] flex flex-col items-center justify-center gap-16">
           {content}
         </div>
       </div>
@@ -120,9 +122,6 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
   }
 
   function stepPlayer() {
-    // - Es gibt vier Player: “Customer”, “Merchant” (Verkäufer), “Acquirer” (Bank des Veräufers), “Issuer” (Bank des Customers)
-    // - und das Paymentgateway (z.B. “authorize.net”)
-    //- → Mittelmann
     return stepWrapper(
       "Die Transaktions-Parteien",
       <div className="flex flex-col gap-2">
@@ -146,10 +145,6 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
   }
 
   function stepDataBetweenCostumerAndMerchant() {
-    /*→ Der Kunde gibt seine Kreditkarteninformationen auf der Website des Verkäufers ein
-→ Der Verkäufer sendet die Daten an das Paymentgateway
-    */
-
     return stepWrapper(
       "Eingabe der Kreidtkarteninformationen",
       <div className="flex flex-col gap-2">
@@ -159,6 +154,15 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           klickt, sendet der Verkäufer die Kreditkarteninformationen an das
           Paymentgateway.
         </p>
+      </div>
+    );
+  }
+
+  function demoDataBetweenCostumerAndMerchant() {
+    return demoWrapper(
+      <div className="flex flex-col gap-6 justify-center">
+        <CreditCardPaymentForm />
+        <button className="btn btn-primary">Bezahlen</button>
       </div>
     );
   }
@@ -221,6 +225,14 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           Diese Verifizierung kann z.B. per SMS-Tan oder Fingerabdruck in der
           Banking App erfolgen (siehe "3D Secure" und "PSD2").
         </p>
+      </div>
+    );
+  }
+
+  function demo3DSecure() {
+    return demoWrapper(
+      <div className="flex flex-col gap-6 justify-center">
+        <img src={CreditCardSmsTanIcon} alt="Credit Card SMS Tan" />
       </div>
     );
   }

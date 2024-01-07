@@ -108,21 +108,6 @@ export default function CreditCardInfotext() {
               </div>
             </div>
           ))}
-
-          <p className="my-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatibus, voluptate, quibusdam, quas voluptatem quia
-            exercitationem quod quos quae voluptatum dolorum. Quisquam
-            voluptatibus, voluptate, quibusdam, quas voluptatem quia
-            exercitationem quod quos quae voluptatum dolorum.
-          </p>
-          <p className="mb-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatibus, voluptate, quibusdam, quas voluptatem quia
-            exercitationem quod quos quae voluptatum dolorum. Quisquam
-            voluptatibus, voluptate, quibusdam, quas voluptatem quia
-            exercitationem quod quos quae voluptatum dolorum.
-          </p>
         </div>
       }
     />
