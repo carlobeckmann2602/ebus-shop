@@ -1,6 +1,50 @@
 import { PaymentType } from "../../../constants/PaymentTypes";
 import InfotextLayout from "./InfotextLayout";
 
+const steps = [
+  {
+    title: "1. Authorization",
+    content: (
+      <>
+        <p>
+          Sobald sie eine Kreditkarte als Zahlungsmittel ausgewählt und auf
+          "Bezahlen" geklickt haben werden die Transaktionsdaten und die
+          eingegebenen Bezahlinformationen an das Payment Gateway übermittelt.
+        </p>
+        <p>
+          Das Gateway überprüft nun ob die Kreditkarte gültig ist und ob der
+          Betrag auf der Kreditkarte verfügbar ist.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "2. Capture",
+    content: (
+      <>
+        <p>
+          Falls der Kreditkarteninhaber genügend Geld auf der Kreditkarte hat
+          wird die Zahlung akzeptiert und der "Issuer" hält den Betrag auf der
+          Karte zurück.
+        </p>
+        <p>Nun kann der Händler die Ware versenden.</p>
+      </>
+    ),
+  },
+  {
+    title: "3. Settlement",
+    content: (
+      <>
+        <p>
+          Das zurückgehaltene Geld wird von der Kreditkarte des Karteninhabers
+          abgebucht und dem Händler gutgeschrieben. Dies geschieht in der Regel
+          innerhalb von 2-3 Tagen.
+        </p>
+      </>
+    ),
+  },
+];
+
 export default function CreditCardInfotext() {
   return (
     <InfotextLayout
@@ -40,21 +84,16 @@ export default function CreditCardInfotext() {
             dazu auf die nummerierten Reiter.
           </p>
 
-          {[...Array(5).keys()].map((index) => (
+          {steps.map((step, index) => (
             <div
               key={index}
               tabIndex={index}
               className="collapse bg-primary text-primary-content mb-2"
             >
               <div className="collapse-title text-xl font-medium">
-                {index + 1}. Schritt
+                {step.title}
               </div>
-              <div className="collapse-content">
-                <p>
-                  Beispieltext für den Schritt {index + 1} bei
-                  Kreditkartenbezahlungen.
-                </p>
-              </div>
+              <div className="collapse-content">{step.content}</div>
             </div>
           ))}
 
