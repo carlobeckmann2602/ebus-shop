@@ -24,9 +24,13 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
     stepEinschub3DSecure(),
     stepEinschubPSD2(),
     step3DSecure(),
+    stepCapture(),
+    stepSettlement(),
   ];
 
   const ALL_DEMOS = [
+    demoOne(),
+    demoOne(),
     demoOne(),
     demoOne(),
     demoOne(),
@@ -145,10 +149,6 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
   }
 
   function stepAuthorization() {
-    /*→ Gateway erhält Transaktions Informationen und die Bezahlinformationen des Kundes vom Verkäufer
-
-→ das Gateway prüft ob der Kunde genug “guthaben” hat um die produkte zu bezahlen und führt 3D Secure aus
-*/
     return stepWrapper(
       "1. Authorization",
       <div className="flex flex-col gap-2">
@@ -158,9 +158,12 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
         </p>
         <p>
           Das Gateway prüft zunächst ob der Kunde genug Guthaben hat um die
-          Produkte zu bezahlen. Anschließend wird mithilfe von 3D Secure
-          verifiziert, dass der Kunde auch wirklich der Besitzer der Kreditkarte
-          ist.
+          Produkte zu bezahlen. Hat der Kunde genug Guthaben, wird der Betrag
+          auf der Kreditkarte reserviert bis die Transaktion abgeschlossen ist.
+        </p>
+        <p>
+          Anschließend wird mithilfe von 3D Secure verifiziert, dass der Kunde
+          auch wirklich der Besitzer der Kreditkarte ist.
         </p>
       </div>
     );
@@ -318,6 +321,44 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
             auf den Kunden umgelegt werden.
           </p>
         </div>
+      </div>
+    );
+  }
+
+  function stepCapture() {
+    return stepWrapper(
+      "2. Capture",
+      <div className="flex flex-col gap-2">
+        <p>
+          Nachdem mithilfe von 3D Secure verifiziert wurde, dass der Kunde auch
+          wirklich der Besitzer der Kreditkarte ist, akzeptiert der Issuer (Bank
+          des Kunden) die Transaktion und sendet eine Bestätigung an das
+          Gateway.
+        </p>
+        <p>
+          Die Transaktion wird nun durchgeführt und der Verkäufer kann die Ware
+          versenden.
+        </p>
+      </div>
+    );
+  }
+
+  function stepSettlement() {
+    return stepWrapper(
+      "3. Settlement",
+      <div className="flex flex-col gap-2">
+        <p>
+          Das zurückgehaltene Geld wird vom Issuer (Bank des Kunden) an das
+          Konto des Verkäufers transferiert.
+        </p>
+        <p>
+          Die Transaktion ist nun abgeschlossen und der Verkäufer hat das Geld
+          erhalten.
+        </p>
+        <p>
+          Diese Transaktion wird als "Settlement" bezeichnet und meist innerhalb
+          von 2-3 Tagen durchgeführt.
+        </p>
       </div>
     );
   }
