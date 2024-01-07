@@ -12,6 +12,11 @@ const steps = [
           eingegebenen Bezahlinformationen an das Payment Gateway übermittelt.
         </p>
         <p>
+          Das Payment Gateway ist eine Software, die die Kommunikation zwischen
+          dem Händler und dem "Acquirer" (Zahlungsanbieter des Käufers)
+          übernimmt.
+        </p>
+        <p>
           Das Gateway überprüft nun ob die Kreditkarte gültig ist und ob der
           Betrag auf der Kreditkarte verfügbar ist.
         </p>
@@ -25,9 +30,12 @@ const steps = [
         <p>
           Falls der Kreditkarteninhaber genügend Geld auf der Kreditkarte hat
           wird die Zahlung akzeptiert und der "Issuer" hält den Betrag auf der
-          Karte zurück.
+          Kreditkarte des Karteninhabers zurück.
         </p>
-        <p>Nun kann der Händler die Ware versenden.</p>
+        <p>
+          Der Händler erhält eine Bestätigung über die erfolgreiche Zahlung und
+          kann die Bestellung bearbeiten.
+        </p>
       </>
     ),
   },
@@ -38,7 +46,7 @@ const steps = [
         <p>
           Das zurückgehaltene Geld wird von der Kreditkarte des Karteninhabers
           abgebucht und dem Händler gutgeschrieben. Dies geschieht in der Regel
-          innerhalb von 2-3 Tagen.
+          gesammelt einmal am Tag.
         </p>
       </>
     ),
@@ -93,7 +101,9 @@ export default function CreditCardInfotext() {
               <div className="collapse-title text-xl font-medium">
                 {step.title}
               </div>
-              <div className="collapse-content">{step.content}</div>
+              <div className="collapse-content flex flex-col gap-4">
+                {step.content}
+              </div>
             </div>
           ))}
 
