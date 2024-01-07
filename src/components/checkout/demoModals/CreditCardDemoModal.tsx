@@ -146,7 +146,7 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
 
   function stepDataBetweenCostumerAndMerchant() {
     return stepWrapper(
-      "Eingabe der Kreidtkarteninformationen",
+      "Eingabe der Kreditkarteninformationen",
       <div className="flex flex-col gap-2">
         <p>
           Der Kunde (Customer) gibt seine Kreditkarteninformationen auf der
