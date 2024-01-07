@@ -1,4 +1,5 @@
 import { PaymentType } from "../../constants/PaymentTypes.ts";
+import PaymentIcon from "./PaymentIcon.tsx";
 
 type PaymentProps = {
   type: PaymentType;
@@ -31,21 +32,9 @@ export default function Payment({
           {type}
         </div>
         <div className="flex flex-row gap-1">
-          {icons.map((icon) => {
-            return (
-              <div
-                className="px-3 py-1 border bg-white rounded-md h-8 aspect-video flex flex-col justify-center items-center"
-                style={
-                  icon.backgroundColor
-                    ? { backgroundColor: icon.backgroundColor }
-                    : {}
-                }
-                key={icon.url}
-              >
-                <img src={icon.url} className="object-fill" />
-              </div>
-            );
-          })}
+          {icons.map((icon) => (
+            <PaymentIcon {...icon} />
+          ))}
         </div>
       </div>
       <div

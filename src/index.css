@@ -14,3 +14,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+a {
+  @apply text-blue-500 hover:text-blue-600;
+}
