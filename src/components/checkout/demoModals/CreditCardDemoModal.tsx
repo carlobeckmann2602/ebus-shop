@@ -203,15 +203,11 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
         </p>
         <ul className="list-disc ml-6">
           <li>
-            Wird die Transaktion als “kein Betrug” gewertet, wird die
-            Transaktion durchgeführt.
+            Wird die Transaktion als “kein Betrug” oder als “möglicherweise
+            Betrug” gewertet, wird der Kunde aufgefordert sich zu verifizieren.
           </li>
           <li>
-            Wird die Transaktion als “möglicherweise Betrug” gewertet, wird der
-            Kunde aufgefordert sich zu verifizieren.
-          </li>
-          <li>
-            Wird die Transaktion als “Betrug” gewerte, wird die Transaktion
+            Wird die Transaktion als “Betrug” gewertet, wird die Transaktion
             abgelehnt.
           </li>
         </ul>
