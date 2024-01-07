@@ -89,7 +89,7 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
               onClick={() => props.afterModal()}
               className="btn btn-primary"
             >
-              Fertig
+              Demonstration schließen
             </span>
           )}
         </div>
@@ -193,13 +193,9 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           Issuers (Bank des Customers) an.
         </p>
         <p>
-          Die Risikobewertung wird durch die 3D Secure Verifizierung
-          durchgeführt.
-        </p>
-        <p>
           Der Issuer bewertet anhand von Faktoren wie Transaktionsvolumen, IP
           Adresse, Gerät, etc. ob es sich um eine betrügerische Transaktion
-          handelt.
+          handeln könnte.
         </p>
         <ul className="list-disc ml-6">
           <li>
@@ -217,13 +213,13 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
         </ul>
         <h1 className="font-bold">3D Secure Verifizierung: </h1>
         <p>
-          Falls der Kunde aufgefordert wird sich zu verifizieren, wird er auf
-          eine Seite des Issuers weitergeleitet.
+          Falls der Kunde aufgefordert wird sich zu verifizieren, wird dieser
+          auf eine Seite des Issuers weitergeleitet.
         </p>
         <p>
-          Dort wird der Kunde aufgefordert sich zu verifizieren. Die
-          Verifizierung kann z.B. per Fingerabdruck in der Banking App oder per
-          SMS Code erfolgen.
+          Dort wird der Kunde aufgefordert sich per 3D Secure zu verifizieren.
+          Diese Verifizierung kann z.B. per SMS-Tan oder Fingerabdruck in der
+          Banking App erfolgen (siehe "3D Secure" und "PSD2").
         </p>
       </div>
     );
@@ -264,6 +260,11 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           Beim Bezahlvorgang prüft die Bank die Zahlung und autorisiert sie. 3D
           Secure schützt Verbraucher und gibt ihnen Vertrauen in
           Online-Shopping.
+        </p>
+
+        <p>
+          3D Secure wird unteranderem von der PSD2 EU-Richtlinie verpflichtend
+          gemacht (siehe "PSD2").
         </p>
       </div>
     );
@@ -345,10 +346,9 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       "2. Capture",
       <div className="flex flex-col gap-2">
         <p>
-          Nachdem mithilfe von 3D Secure verifiziert wurde, dass der Kunde auch
-          wirklich der Besitzer der Kreditkarte ist, akzeptiert der Issuer (Bank
-          des Kunden) die Transaktion und sendet eine Bestätigung an das
-          Gateway.
+          Im "Capture" Step wird die Transaktion durchgeführt. Das heißt, dass
+          der Acquirer (Bank des Verkäufers) das reservierte Geld vom Issuer
+          (Bank des Kunden) anfordert.
         </p>
         <p>
           Die Transaktion wird nun durchgeführt und der Verkäufer kann die Ware
