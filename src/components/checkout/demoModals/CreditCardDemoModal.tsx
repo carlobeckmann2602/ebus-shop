@@ -17,6 +17,7 @@ type CreditCardDemoModalProps = {
 
 export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
   const [activeStep, setActiveStep] = useState<number>(0);
+
   const ALL_STEPS = [
     stepPlayer(),
     stepDataBetweenCostumerAndMerchant(),
@@ -55,7 +56,11 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
     });
   }
 
-  function stepWrapper(title: string, content: ReactNode) {
+  function stepWrapper(
+    title: string,
+    content: ReactNode,
+    isLastStep?: boolean
+  ) {
     return (
       <div className="flex flex-col items-center gap-6">
         <h3
@@ -74,9 +79,19 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
               Zurück
             </span>
           )}
-          <span onClick={nextPage} className="btn btn-primary">
-            Weiter
-          </span>
+
+          {!isLastStep ? (
+            <span onClick={nextPage} className="btn btn-primary">
+              Weiter
+            </span>
+          ) : (
+            <span
+              onClick={() => props.afterModal()}
+              className="btn btn-primary"
+            >
+              Fertig
+            </span>
+          )}
         </div>
       </div>
     );
@@ -359,7 +374,8 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           Diese Transaktion wird als "Settlement" bezeichnet und meist innerhalb
           von 2-3 Tagen durchgeführt.
         </p>
-      </div>
+      </div>,
+      true
     );
   }
 
