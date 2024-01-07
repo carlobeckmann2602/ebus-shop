@@ -1,5 +1,6 @@
 import { PaymentType } from "../../constants/PaymentTypes";
 import OverviewLayout from "./OverviewLayout";
+import payPalSummary from "../../assets/images/demoModals/paypal/summary.png";
 
 export default function PaypalOverview() {
   return (
@@ -26,6 +27,18 @@ export default function PaypalOverview() {
             Onlinehändler geben hier stets Daten an, die beispielsweise durch
             einen simplen Anruf geprüft werden können.
           </p>
+          <br />
+          <p>
+            Die nachfolgende Grafik fasst alle Sessions zusammen. Dabei wird
+            noch einmal deutlich, dass diese aufeinander aufbauen und auf Seiten
+            von PayPal an drei verschiedenen Systemen hängen.
+          </p>
+          <img
+            src={payPalSummary}
+            alt={
+              "Zusammenfassung der verschiedenen Sessions eines Bezahlvorganges via PayPal"
+            }
+          ></img>
         </>
       }
     />
