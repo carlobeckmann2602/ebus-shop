@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import PaypalDemoModal from "../components/checkout/demoModals/PaypalDemoModal.tsx";
 import ApplePayDemoModal from "../components/checkout/demoModals/ApplePayDemoModal.tsx";
 import GooglePayDemoModal from "../components/checkout/demoModals/GooglePayDemoModal.tsx";
+import CreditCardDemoModal from "../components/checkout/demoModals/CreditCardDemoModal.tsx";
 
 type CheckoutProps = {
   cartItems: CartItem[];
@@ -31,6 +32,7 @@ export default function Checkout(props: CheckoutProps) {
   const [showPaypalDemoModal, setShowPaypalDemoModal] = useState(false);
   const [showApplePayDemoModal, setShowApplePayDemoModal] = useState(false);
   const [showGooglePayDemoModal, setShowGooglePayDemoModal] = useState(false);
+  const [showCreditCardDemoModal, setShowCreditCardDemoModal] = useState(false);
 
   const [totalCartValue] = useState(
     props.cartItems
@@ -62,6 +64,10 @@ export default function Checkout(props: CheckoutProps) {
       case PaymentType.GooglePay:
         console.log("Google Pay");
         setShowGooglePayDemoModal(true);
+        break;
+      case PaymentType.CreditCard:
+        console.log("Credit Card");
+        setShowCreditCardDemoModal(true);
         break;
       default:
         continueToOverview();
@@ -170,6 +176,15 @@ export default function Checkout(props: CheckoutProps) {
             {showGooglePayDemoModal ? (
               <GooglePayDemoModal
                 setShowGooglePayDemoModal={setShowGooglePayDemoModal}
+                afterModal={continueToOverview}
+                totalCartValue={totalCartValue}
+              />
+            ) : (
+              ""
+            )}
+            {showCreditCardDemoModal ? (
+              <CreditCardDemoModal
+                setShowDemoModal={setShowCreditCardDemoModal}
                 afterModal={continueToOverview}
                 totalCartValue={totalCartValue}
               />

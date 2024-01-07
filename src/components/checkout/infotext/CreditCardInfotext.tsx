@@ -17,8 +17,9 @@ const steps = [
           übernimmt.
         </p>
         <p>
-          Das Gateway überprüft nun ob die Kreditkarte gültig ist und ob der
-          Betrag auf der Kreditkarte verfügbar ist.
+          Das Gateway überprüft nun ob die Kreditkarte gültig, der Betrag auf
+          der Kreditkarte verfügbar und die Transaktion nicht verdächtig ist.
+          Die Risikobewertung wird mit 3D-Secure durchgeführt.
         </p>
       </>
     ),
@@ -29,8 +30,9 @@ const steps = [
       <>
         <p>
           Falls der Kreditkarteninhaber genügend Geld auf der Kreditkarte hat
-          wird die Zahlung akzeptiert und der "Issuer" hält den Betrag auf der
-          Kreditkarte des Karteninhabers zurück.
+          und die Transaktion nicht verdächtig ist, wird die Transaktion
+          akzeptiert und der "Issuer" hält den Betrag auf der Kreditkarte des
+          Karteninhabers zurück.
         </p>
         <p>
           Der Händler erhält eine Bestätigung über die erfolgreiche Zahlung und
