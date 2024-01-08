@@ -139,7 +139,13 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           Zusätzlich gibt es noch das Paymentgateway (z.B. “authorize.net”),
           welches als Mittelmann zwischen den Parteien fungiert.
         </p>
-        <img src={CreditCardPlayerIcon} alt="Credit Card Player" />
+        <a href={CreditCardPlayerIcon} target="_blank">
+          <img
+            className="p-2 bg-white rounded-md"
+            src={CreditCardPlayerIcon}
+            alt="Credit Card Player"
+          />
+        </a>
       </div>
     );
   }
@@ -228,7 +234,13 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
   function demo3DSecure() {
     return demoWrapper(
       <div className="flex flex-col gap-6 justify-center">
-        <img src={CreditCardSmsTanIcon} alt="Credit Card SMS Tan" />
+        <a href={CreditCardSmsTanIcon} target="_blank">
+          <img
+            className="p-2 bg-white rounded-md"
+            src={CreditCardSmsTanIcon}
+            alt="Credit Card SMS Tan"
+          />
+        </a>
       </div>
     );
   }
@@ -323,7 +335,13 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
             der Kunde bei einer Zahlung mit zwei der folgenden drei Faktoren
             authentifizieren:
           </p>
-          <img src={CreditCardScaIcon} alt="Credit Card SCA" />
+          <a href={CreditCardScaIcon} target="_blank">
+            <img
+              className="p-2 bg-white rounded-md"
+              src={CreditCardScaIcon}
+              alt="Credit Card SCA"
+            />
+          </a>
         </div>
 
         <div>
