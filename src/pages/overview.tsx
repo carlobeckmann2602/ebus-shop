@@ -5,7 +5,6 @@ import { PaymentType } from "../constants/PaymentTypes.ts";
 import ApplePayOverview from "../components/overview/ApplePayOverview.tsx";
 import CreditCardOverview from "../components/overview/CreditCardOverview.tsx";
 import GooglePayOverview from "../components/overview/GooglePayOverview.tsx";
-import KlarnaOverview from "../components/overview/KlarnaOverview.tsx";
 import PaypalOverview from "../components/overview/PaypalOverview.tsx";
 
 type OverviewProps = {
@@ -29,10 +28,6 @@ export default function Overview(props: OverviewProps) {
 
       case PaymentType.GooglePay:
         return <GooglePayOverview />;
-        break;
-
-      case PaymentType.Klarna:
-        return <KlarnaOverview />;
         break;
 
       case PaymentType.PayPal:

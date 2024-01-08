@@ -4,7 +4,6 @@ import PayPalIcon from "../../assets/images/payments/paypal.png";
 import AmexIcon from "../../assets/images/payments/amex.png";
 import ApplePayIcon from "../../assets/images/payments/apple-pay.png";
 import GooglePayIcon from "../../assets/images/payments/google-pay.png";
-import KlarnaIcon from "../../assets/images/payments/klarna.svg";
 import MastercardIcon from "../../assets/images/payments/mastercard.png";
 import MaestroIcon from "../../assets/images/payments/mastero.png";
 import VisaIcon from "../../assets/images/payments/visa.png";
@@ -59,23 +58,7 @@ export default function AllPayments({
         selected={selectedPayment === PaymentType.CreditCard}
         onSelected={() => onPaymentSelected(PaymentType.CreditCard)}
       />
-      <Payment
-        type={PaymentType.Klarna}
-        icons={[
-          {
-            url: KlarnaIcon,
-            backgroundColor: "#F3B7C7",
-          },
-        ]}
-        selectedContent={
-          <div className="text-center">
-            After clicking "Pay with Klarna" you will be redirected to Klarna to
-            complete your purchase securely.
-          </div>
-        }
-        selected={selectedPayment === PaymentType.Klarna}
-        onSelected={() => onPaymentSelected(PaymentType.Klarna)}
-      />
+
       <Payment
         type={PaymentType.ApplePay}
         icons={[

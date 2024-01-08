@@ -11,7 +11,6 @@ import PaypalInfotext from "../components/checkout/infotext/PaypalInfotext.tsx";
 import CreditCardInfotext from "../components/checkout/infotext/CreditCardInfotext.tsx";
 import GooglePayInfotext from "../components/checkout/infotext/GooglePayInfotext.tsx";
 import ApplePayInfotext from "../components/checkout/infotext/ApplePayInfotext.tsx";
-import KlarnaInfotext from "../components/checkout/infotext/KlarnaInfotext.tsx";
 import IntroText from "../components/checkout/infotext/IntroText.tsx";
 import { useNavigate } from "react-router-dom";
 import PaypalDemoModal from "../components/checkout/demoModals/PaypalDemoModal.tsx";
@@ -91,10 +90,6 @@ export default function Checkout(props: CheckoutProps) {
 
       case PaymentType.PayPal:
         return <PaypalInfotext />;
-        break;
-
-      case PaymentType.Klarna:
-        return <KlarnaInfotext />;
         break;
 
       case PaymentType.ApplePay:
