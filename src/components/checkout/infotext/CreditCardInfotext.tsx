@@ -7,36 +7,21 @@ const steps = [
     content: (
       <>
         <p>
-          Sobald sie eine Kreditkarte als Zahlungsmittel ausgewählt und auf
-          "Bezahlen" geklickt haben werden die Transaktionsdaten und die
-          eingegebenen Bezahlinformationen an das Payment Gateway übermittelt.
-        </p>
-        <p>
-          Das Payment Gateway ist eine Software, die die Kommunikation zwischen
-          dem Händler und dem "Acquirer" (Zahlungsanbieter des Käufers)
-          übernimmt.
-        </p>
-        <p>
-          Das Gateway überprüft nun ob die Kreditkarte gültig, der Betrag auf
-          der Kreditkarte verfügbar und die Transaktion nicht verdächtig ist.
-          Die Risikobewertung wird mit 3D-Secure durchgeführt.
+          In diesem Schritt wird mit 3D Secure geprüft, ob der Karteninhaber
+          tatsächlich der Besitzer der Kreditkarte ist und ob er genügend Geld
+          auf der Kreditkarte hat.
         </p>
       </>
     ),
   },
   {
-    title: "2. Capture",
+    title: "2. Clearing",
     content: (
       <>
         <p>
-          Falls der Kreditkarteninhaber genügend Geld auf der Kreditkarte hat
-          und die Transaktion nicht verdächtig ist, wird die Transaktion
-          akzeptiert und der "Issuer" hält den Betrag auf der Kreditkarte des
-          Karteninhabers zurück.
-        </p>
-        <p>
-          Der Händler erhält eine Bestätigung über die erfolgreiche Zahlung und
-          kann die Bestellung bearbeiten.
+          In diesem Schritt wird die Zahlung vom Karteninhaber an den Händler
+          autorisiert. Das Geld wird jedoch noch nicht an den Händler
+          ausgezahlt, sondern zurückgehalten.
         </p>
       </>
     ),
@@ -46,9 +31,9 @@ const steps = [
     content: (
       <>
         <p>
-          Das zurückgehaltene Geld wird von der Kreditkarte des Karteninhabers
-          abgebucht und dem Händler gutgeschrieben. Dies geschieht in der Regel
-          gesammelt einmal am Tag.
+          Beim "Settlement" wird das Geld vom Karteninhaber an den Händler
+          ausgezahlt. Dieser Schritt erfolgt in der Regel ein paar Tage nach dem
+          "Clearing".
         </p>
       </>
     ),
@@ -90,8 +75,8 @@ export default function CreditCardInfotext() {
             gekennzeichnet, die im Hintergrund ablaufen.
           </p>
           <p className="mb-4">
-            Die folgenden Abschnitte beschreiben diese nacheinander. Klicken Sie
-            dazu auf die nummerierten Reiter.
+            Die folgenden Abschnitte beschreiben diese knapp nacheinander.
+            Klicken Sie dazu auf die nummerierten Reiter.
           </p>
 
           {steps.map((step, index) => (
@@ -108,6 +93,12 @@ export default function CreditCardInfotext() {
               </div>
             </div>
           ))}
+
+          <p className="my-4">
+            Um mehr über die technischen Hintergründe zu erfahren, klicken sie
+            im Bestellprozess auf den Button "Bezahlen" und folgen Sie dem
+            interaktiven Bezahlvorgang.
+          </p>
         </div>
       }
     />
