@@ -3,7 +3,7 @@ describe("homepage tests", () => {
     cy.visit("localhost:5173/checkout");
     window.localStorage.setItem(
       "cart",
-      '[{"id":1,"name":"Der Einstieg ins E-Business","description":"Der Einstieg ins E-Business ist ein Paket, das dir die Grundlagen von E-Business in einer Videoreihe erklärt. E-Business ist die Abwicklung von Geschäftsprozessen über das Internet, wie zum Beispiel Online-Handel, Online-Marketing oder Online-Kommunikation. Mit dem Paket lernst du, wie du dein eigenes E-Business aufbauen, betreiben und optimieren kannst. Du erfährst, welche Vorteile und Herausforderungen E-Business mit sich bringt, welche Strategien und Tools du anwenden kannst und welche rechtlichen und technischen Aspekte du beachten musst. Das Paket besteht aus mehreren Videos.","price":"49.99","imageAlt":"Cover von \'Der Einstieg ins E-Business\'","imageUrl":"einstieg-ebus.jpeg","quantity":4}]'
+      '[{"id":1,"name":"Der Einstieg ins E-Business ist ein Paket, das ihnen die Grundlagen von E-Business in einer Videoreihe erklärt. E-Business ist die Abwicklung von Geschäftsprozessen über das Internet, wie zum Beispiel Online-Handel, Online-Marketing oder Online-Kommunikation. Mit dem Paket lernen sie, wie sie ihr eigenes E-Business aufbauen, betreiben und optimieren können. Sie erfahren, welche Vorteile und Herausforderungen E-Business mit sich bringt, welche Strategien und Tools sie anwenden können und welche rechtlichen und technischen Aspekte sie beachten müssen. Das Paket besteht aus mehreren Videos.","price":"49.99","imageAlt":"Cover von \'Der Einstieg ins E-Business\'","imageUrl":"einstieg-ebus.jpeg","quantity":4}]'
     );
   });
 
