@@ -10,6 +10,81 @@ import CreditCardScaIcon from "../../../assets/images/demoModals/credit-card/cre
 import PaymentIcon from "../PaymentIcon";
 import CreditCardPaymentForm from "../CreditCardPaymentForm";
 import CreditCardSmsTanIcon from "../../../assets/images/demoModals/credit-card/credit-card-sms-tan.png";
+import CreditCardStep1Image from "../../../assets/images/demoModals/credit-card/credit-card-step-1.png";
+import CreditardAuthorizationImage from "../../../assets/images/demoModals/credit-card/credit-card-authorization.png";
+import SecureVisaAndMastercardImage from "../../../assets/images/demoModals/credit-card/3d-secure-visa-mastercard.png";
+
+function renderWarning(content: ReactNode) {
+  return (
+    <div className="bg-base-300 flex gap-4 p-4 rounded-lg border-l-warning border-l-8">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="stroke-current shrink-0 h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+        />
+      </svg>
+      <div>{content}</div>
+    </div>
+  );
+}
+
+function renderKonto(
+  day: string,
+  isProcessing: boolean,
+  isIncoming: boolean,
+  otherName: string,
+  balance: number
+) {
+  const price = 500;
+  return (
+    <div className="flex flex-col gap-6 justify-center w-full mt-2">
+      <div className="text-2xl">
+        Konto des {isIncoming ? "Verkäufers" : "Käufers"}:
+      </div>
+      <div className="flex flex-col gap-2">
+        <div className="flex flex-col justify-between w-full bg-gray-800 px-4 py-2 rounded-md">
+          <p>Kontostand</p>
+          <p className="text-white text-xl font-bold">
+            {isProcessing ? balance : balance + price * (isIncoming ? 1 : -1)}
+            ,00 €
+          </p>
+        </div>
+        <div className="flex flex-col gap-2 justify-center w-full">
+          <p className="text-white text-sm">{day}</p>
+          <div className="flex flex-row justify-between w-full bg-gray-800 px-4 py-2 rounded-md">
+            <div>
+              <p className="text-white">{otherName}</p>
+              {isProcessing ? (
+                <p className={`text-sm text-yellow-400`}>
+                  <div className="flex flex-row gap-1">Vorgemerkt</div>
+                </p>
+              ) : (
+                <p className="text-gray-400 text-sm">
+                  09.01.24 - {isIncoming ? "Eingehend" : "Ausgehend"}
+                </p>
+              )}
+            </div>
+            <p
+              className={`text-black h-min rounded-md px-2 ${
+                isIncoming ? "bg-green-500 text-white" : "bg-red-500 text-white"
+              } ${isProcessing ? "opacity-20" : ""}`}
+            >
+              {isIncoming ? "+" : "-"}
+              {price},00 €
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 type CreditCardDemoModalProps = {
   setShowDemoModal: (visibility: boolean) => void;
@@ -27,7 +102,7 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
     stepEinschub3DSecure(),
     stepEinschubPSD2(),
     step3DSecure(),
-    stepCapture(),
+    stepClearing(),
     stepSettlement(),
   ];
 
@@ -38,8 +113,8 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
     demoOne(),
     demoOne(),
     demo3DSecure(),
-    demoOne(),
-    demoOne(),
+    demoClearing(),
+    demoSettlement(),
   ];
 
   function cancel() {
@@ -136,8 +211,8 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           <li>Issuer (Bank des Kunden)</li>
         </ul>
         <p>
-          Zusätzlich gibt es noch das Paymentgateway (z.B. “authorize.net”),
-          welches als Mittelmann zwischen den Parteien fungiert.
+          Zusätzlich gibt es noch das Paymentgateway (z.B. “authorize.net” von
+          Visa), welches als Vermittler zwischen den Parteien fungiert.
         </p>
         <a href={CreditCardPlayerIcon} target="_blank">
           <img
@@ -157,9 +232,10 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
         <p>
           Der Kunde (Customer) gibt seine Kreditkarteninformationen auf der
           Website des Verkäufers (Merchant) ein. Sobald der Kunde auf “Bezahlen”
-          klickt, sendet der Verkäufer die Kreditkarteninformationen an das
-          Paymentgateway.
+          klickt, sendet der Verkäufer die Kreditkarteninformationen an den
+          Acquirer (Bank des Verkäufers).
         </p>
+        <img src={CreditCardStep1Image} alt="Credit Card Step 1" />
       </div>
     );
   }
@@ -168,7 +244,9 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
     return demoWrapper(
       <div className="flex flex-col gap-6 justify-center">
         <CreditCardPaymentForm />
-        <button className="btn btn-primary">Bezahlen</button>
+        <button className="btn btn-primary" onClick={() => nextPage()}>
+          Bezahlen
+        </button>
       </div>
     );
   }
@@ -178,18 +256,29 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       "1. Authorization",
       <div className="flex flex-col gap-2">
         <p>
-          Das Gateway erhält die Transaktions Informationen und die
-          Bezahlinformationen des Kunden vom Verkäufer.
+          Die Bank des Verkäufers, auch als Acquirer bekannt, empfängt von
+          diesem die Transaktions- und Bezahlinformationen des Kunden. Diese
+          Daten werden über das Gateway an die Bank des Kunden, den Issuer,
+          weitergeleitet.
         </p>
         <p>
-          Das Gateway prüft zunächst ob der Kunde genug Guthaben hat um die
-          Produkte zu bezahlen. Hat der Kunde genug Guthaben, wird der Betrag
-          auf der Kreditkarte reserviert bis die Transaktion abgeschlossen ist.
+          Der Issuer prüft zunächst die Verfügbarkeit ausreichender Guthaben auf
+          der Kreditkarte des Kunden, um die Produkte zu bezahlen. Falls
+          ausreichend Guthaben vorhanden ist, erfolgt eine Reservierung des
+          Betrags auf der Kreditkarte bis zur abschließenden Durchführung der
+          Transaktion.
         </p>
         <p>
-          Anschließend wird mithilfe von 3D Secure verifiziert, dass der Kunde
-          auch wirklich der Besitzer der Kreditkarte ist.
+          Im nächsten Schritt erfolgt die Überprüfung der Kartenlegitimität
+          mithilfe von 3D Secure, um sicherzustellen, dass der Karteninhaber
+          tatsächlich legitim ist (weitere Informationen siehe Abschnitte "3D
+          Secure" und "PSD2").
         </p>
+        <img
+          src={CreditardAuthorizationImage}
+          className="rounded-md"
+          alt="Credit Card Authorization"
+        />
       </div>
     );
   }
@@ -286,6 +375,11 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           3D Secure wird unteranderem von der PSD2 EU-Richtlinie verpflichtend
           gemacht (siehe "PSD2").
         </p>
+        <img
+          src={SecureVisaAndMastercardImage}
+          className="bg-white rounded-md w-1/4 mx-auto"
+          alt="3D-Secure Visa And Mastercard"
+        />
       </div>
     );
   }
@@ -337,7 +431,7 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           </p>
           <a href={CreditCardScaIcon} target="_blank">
             <img
-              className="p-2 bg-white rounded-md"
+              className="m-2 bg-white rounded-md"
               src={CreditCardScaIcon}
               alt="Credit Card SCA"
             />
@@ -367,19 +461,30 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
     );
   }
 
-  function stepCapture() {
+  function stepClearing() {
     return stepWrapper(
-      "2. Capture",
+      "2. Clearing",
       <div className="flex flex-col gap-2">
         <p>
-          Im "Capture" Step wird die Transaktion durchgeführt. Das heißt, dass
-          der Acquirer (Bank des Verkäufers) das reservierte Geld vom Issuer
-          (Bank des Kunden) anfordert.
+          Im "Clearing"-Prozess erfolgt der Austausch präziser
+          Transaktionsinformationen zwischen dem Acquirer (der Bank des
+          Verkäufers) und dem Issuer (der Bank des Käufers).
         </p>
         <p>
-          Die Transaktion wird nun durchgeführt und der Verkäufer kann die Ware
-          versenden.
+          Wenn Mastercard als Gateway fungiert, übernimmt das sogenannte Global
+          Clearing Management System (GCMS) von Mastercard die Erfassung dieser
+          Informationen. Das System verarbeitet die Daten, berechnet die
+          entsprechenden Gebühren und leitet sie an den jeweiligen Empfänger
+          weiter.
         </p>
+        {renderWarning(
+          <p>
+            Wichtig zu beachten ist, dass in diesem Stadium des Prozesses
+            lediglich Informationen ausgetauscht werden. Die eigentlichen
+            Geldtransaktionen finden erst im nachfolgenden "Settlement"-Schritt
+            statt.
+          </p>
+        )}
       </div>
     );
   }
@@ -402,6 +507,25 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
         </p>
       </div>,
       true
+    );
+  }
+  function demoClearing() {
+    return demoWrapper(
+      <div className="w-full flex flex-col gap-2">
+        {renderKonto("Anstehende Umsätze", true, true, "Kim Käufer", 0)}
+        <div className="flex-grow border-t mt-4 border-gray-400"></div>
+        {renderKonto("Anstehende Umsätze", true, false, "E-Bus Shop", 1300)}
+      </div>
+    );
+  }
+
+  function demoSettlement() {
+    return demoWrapper(
+      <div className="w-full flex flex-col gap-2">
+        {renderKonto("Anstehende Umsätze", false, true, "Kim Käufer", 0)}
+        <div className="flex-grow border-t mt-4 border-gray-400"></div>
+        {renderKonto("Anstehende Umsätze", false, false, "E-Bus Shop", 1300)}
+      </div>
     );
   }
 
