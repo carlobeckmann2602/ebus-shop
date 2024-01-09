@@ -361,8 +361,9 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
         <br />
         {renderInfo(
           <p>
-            Das <Marker>Guthaben</Marker> wird nach erfolgreicher 3D Secure
-            Verifizierung auf der Kreditkarte <Marker>reserviert</Marker>.
+            Das <Marker>Guthaben</Marker> wird bis zur abschließenden
+            Durchführung der Transaktion auf der Kreditkarte des Kunden{" "}
+            <Marker>reserviert</Marker>.
           </p>
         )}
       </div>
