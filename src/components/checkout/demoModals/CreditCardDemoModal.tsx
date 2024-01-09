@@ -13,6 +13,9 @@ import CreditCardSmsTanIcon from "../../../assets/images/demoModals/credit-card/
 import CreditCardStep1Image from "../../../assets/images/demoModals/credit-card/credit-card-step-1.png";
 import CreditardAuthorizationImage from "../../../assets/images/demoModals/credit-card/credit-card-authorization.png";
 import SecureVisaAndMastercardImage from "../../../assets/images/demoModals/credit-card/3d-secure-visa-mastercard.png";
+import VerifiedByVisaImage from "../../../assets/images/demoModals/credit-card/verified-by-visa.svg";
+import TouchId from "../../../assets/images/demoModals/apple-pay/touch-id.png";
+import TouchIdCheck from "../../../assets/images/demoModals/apple-pay/touch-id-check.png";
 
 function renderWarning(content: ReactNode) {
   return (
@@ -35,6 +38,8 @@ function renderWarning(content: ReactNode) {
   );
 }
 
+const PRICE = 500;
+
 function renderKonto(
   day: string,
   isProcessing: boolean,
@@ -42,7 +47,6 @@ function renderKonto(
   otherName: string,
   balance: number
 ) {
-  const price = 500;
   return (
     <div className="flex flex-col gap-6 justify-center w-full mt-2">
       <div className="text-2xl text-black dark:text-white">
@@ -52,7 +56,7 @@ function renderKonto(
         <div className="flex flex-col justify-between w-full bg-gray-800 text-gray-300 px-4 py-2 rounded-md">
           <p>Kontostand</p>
           <p className="text-white text-xl font-bold">
-            {isProcessing ? balance : balance + price * (isIncoming ? 1 : -1)}
+            {isProcessing ? balance : balance + PRICE * (isIncoming ? 1 : -1)}
             ,00 €
           </p>
         </div>
@@ -77,7 +81,7 @@ function renderKonto(
               } ${isProcessing ? "opacity-40" : ""}`}
             >
               {isIncoming ? "+" : "-"}
-              {price},00 €
+              {PRICE},00 €
             </p>
           </div>
         </div>
@@ -102,6 +106,7 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
     stepEinschub3DSecure(),
     stepEinschubPSD2(),
     step3DSecure(),
+    step3DSecure(),
     stepClearing(),
     stepSettlement(),
   ];
@@ -112,7 +117,8 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
     demoOne(),
     demoOne(),
     demoOne(),
-    demo3DSecure(),
+    demo3DSecure(false),
+    demo3DSecure(true),
     demoClearing(),
     demoSettlement(),
   ];
@@ -320,16 +326,76 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
     );
   }
 
-  function demo3DSecure() {
+  function demo3DSecure(showFingerabdruck: boolean) {
     return demoWrapper(
-      <div className="flex flex-col gap-6 justify-center">
-        <a href={CreditCardSmsTanIcon} target="_blank">
+      <div className="flex flex-col gap-6 justify-center border rounded-md p-4">
+        <h1 className="w-full text-xl font-bold">Banking App von Kim Käufer</h1>
+        <div className="flex flex-row justify-between items-end rounded-md p-4 shadow-md">
+          <div className="flex flex-col gap-6 justify-center">
+            <div className="flex flex-col">
+              <p className="text-sm">Betrag</p>
+              <p className="font-bold text-xl">{PRICE},00 €</p>
+            </div>
+            <div>
+              <p className="text-sm">Kartennummer</p>
+              <p>**** **** **** 1234</p>
+            </div>
+          </div>
           <img
-            className="p-2 bg-white rounded-md"
-            src={CreditCardSmsTanIcon}
-            alt="Credit Card SMS Tan"
+            src={VerifiedByVisaImage}
+            className="rounded-md w-14"
+            alt="Verified By Visa"
           />
-        </a>
+        </div>
+        <div>
+          <p>Händler:</p>
+          <p className="font-bold">E-Bus Shop</p>
+        </div>
+        <div>
+          <p>Datum - Uhrzeit</p>
+          <p className="font-bold">
+            {new Date().toLocaleString("DE", {
+              hour: "2-digit",
+              minute: "2-digit",
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
+          </p>
+        </div>
+
+        {!showFingerabdruck ? (
+          <>
+            <p className="text-sm font-light">
+              Bitte bestätigen Sie die Kreditkartenzahlung
+            </p>
+            <div className="flex flex-col gap-2">
+              <button className="btn btn-primary" onClick={() => nextPage()}>
+                Bestätigen
+              </button>
+              <button className="btn">Abbrechen</button>
+            </div>
+          </>
+        ) : (
+          <div className=" bg-primary gap-8 text-white   rounded-t-md flex flex-col justify-center   items-center p-4">
+            <div className="flex flex-col justify-center items-center">
+              <p className="font-bold text-xl">Biometrie für "Banking"</p>
+              <p className="text-center">
+                Bitte bestätigen Sie die Zahlung mit Ihrem Fingerabdruck.
+              </p>
+            </div>
+            <span onClick={() => nextPage()} className="cursor-pointer">
+              <img
+                className="h-10 w-10 object-contain"
+                src={TouchId}
+                alt="Touch ID Icon"
+              />
+            </span>
+            <p className="text-sm font-light">
+              Berühre den Fingerabdrucksensor
+            </p>
+          </div>
+        )}
       </div>
     );
   }
