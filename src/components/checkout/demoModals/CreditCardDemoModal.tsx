@@ -9,13 +9,12 @@ import CreditCardScaIcon from "../../../assets/images/demoModals/credit-card/cre
 
 import PaymentIcon from "../PaymentIcon";
 import CreditCardPaymentForm from "../CreditCardPaymentForm";
-import CreditCardSmsTanIcon from "../../../assets/images/demoModals/credit-card/credit-card-sms-tan.png";
 import CreditCardStep1Image from "../../../assets/images/demoModals/credit-card/credit-card-step-1.png";
 import CreditardAuthorizationImage from "../../../assets/images/demoModals/credit-card/credit-card-authorization.png";
 import SecureVisaAndMastercardImage from "../../../assets/images/demoModals/credit-card/3d-secure-visa-mastercard.png";
 import VerifiedByVisaImage from "../../../assets/images/demoModals/credit-card/verified-by-visa.svg";
 import TouchId from "../../../assets/images/demoModals/apple-pay/touch-id.png";
-import TouchIdCheck from "../../../assets/images/demoModals/apple-pay/touch-id-check.png";
+import Marker from "../../Marker";
 
 function renderWarning(content: ReactNode) {
   return (
@@ -212,18 +211,27 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       "Die Transaktions-Parteien",
       <div className="flex flex-col gap-2">
         <p>
-          Bei einer Zahlung mit Kreditkarte gibt es 4 Parteien, die miteinander
-          kommunizieren:
+          Bei einer Zahlung mit Kreditkarte gibt es <Marker>4 Parteien</Marker>,
+          die miteinander kommunizieren:
         </p>
         <ul className="list-disc list-inside">
-          <li>Customer (Kunde)</li>
-          <li>Merchant (Verkäufer)</li>
-          <li>Acquirer (Bank des Verkäufers)</li>
-          <li>Issuer (Bank des Kunden)</li>
+          <li>
+            <Marker>Customer</Marker> (Kunde)
+          </li>
+          <li>
+            <Marker>Merchant</Marker> (Verkäufer)
+          </li>
+          <li>
+            <Marker>Acquirer</Marker> (Bank des Verkäufers)
+          </li>
+          <li>
+            <Marker>Issuer</Marker> (Bank des Kunden)
+          </li>
         </ul>
         <p>
-          Zusätzlich gibt es noch das Paymentgateway (z.B. “authorize.net” von
-          Visa), welches als Vermittler zwischen den Parteien fungiert.
+          Zusätzlich gibt es noch das <Marker>Paymentgateway</Marker> (z.B.
+          “authorize.net” von Visa), welches als Vermittler zwischen den
+          Parteien fungiert.
         </p>
         <a href={CreditCardPlayerIcon} target="_blank">
           <img
@@ -241,10 +249,11 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       "Eingabe der Kreditkarteninformationen",
       <div className="flex flex-col gap-2">
         <p>
-          Der Kunde (Customer) gibt seine Kreditkarteninformationen auf der
-          Website des Verkäufers (Merchant) ein. Sobald der Kunde auf “Bezahlen”
-          klickt, sendet der Verkäufer die Kreditkarteninformationen an den
-          Acquirer (Bank des Verkäufers).
+          Der <Marker>Kunde</Marker> (Customer) gibt seine{" "}
+          <Marker>Kreditkarteninformationen</Marker> auf der Website des
+          Verkäufers (Merchant) ein. Sobald der Kunde auf “Bezahlen” klickt,
+          sendet der Verkäufer die Kreditkarteninformationen an den{" "}
+          <Marker>Acquirer</Marker> (Bank des Verkäufers).
         </p>
         <img src={CreditCardStep1Image} alt="Credit Card Step 1" />
       </div>
@@ -267,23 +276,23 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       "1. Authorization",
       <div className="flex flex-col gap-2">
         <p>
-          Die Bank des Verkäufers, auch als Acquirer bekannt, empfängt von
-          diesem die Transaktions- und Bezahlinformationen des Kunden. Diese
-          Daten werden über das Gateway an die Bank des Kunden, den Issuer,
-          weitergeleitet.
+          Die Bank des Verkäufers (Acquirer) empfängt von diesem die{" "}
+          <Marker>Transaktions- und Bezahlinformationen</Marker> des Kunden.
+          Diese Daten werden über das Gateway an die Bank des Kunden, den{" "}
+          <Marker>Issuer</Marker>, weitergeleitet.
         </p>
         <p>
-          Der Issuer prüft zunächst die Verfügbarkeit ausreichender Guthaben auf
-          der Kreditkarte des Kunden, um die Produkte zu bezahlen. Falls
-          ausreichend Guthaben vorhanden ist, erfolgt eine Reservierung des
-          Betrags auf der Kreditkarte bis zur abschließenden Durchführung der
-          Transaktion.
+          Der Issuer prüft zunächst die Verfügbarkeit ausreichender{" "}
+          <Marker>Guthaben</Marker> auf der Kreditkarte des Kunden, um die
+          Produkte zu bezahlen. Falls ausreichend Guthaben vorhanden ist,
+          erfolgt eine <Marker>Reservierung des Betrags</Marker> auf der
+          Kreditkarte bis zur abschließenden Durchführung der Transaktion.
         </p>
         <p>
           Im nächsten Schritt erfolgt die Überprüfung der Kartenlegitimität
-          mithilfe von 3D Secure, um sicherzustellen, dass der Karteninhaber
-          tatsächlich legitim ist (weitere Informationen siehe Abschnitte "3D
-          Secure" und "PSD2").
+          mithilfe von <Marker>3D Secure</Marker>, um sicherzustellen, dass der
+          Karteninhaber tatsächlich legitim ist (weitere Informationen siehe
+          Abschnitte "3D Secure" und "PSD2").
         </p>
         <img
           src={CreditardAuthorizationImage}
@@ -299,33 +308,37 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       "1. Authorization: 3D Secure",
       <div className="flex flex-col gap-2">
         <p>
-          Das Gateway fordert im “Authorization” Step eine Risikobewertung des
-          Issuers (Bank des Customers) an.
+          Das <Marker>Gateway</Marker> fordert im “
+          <Marker>Authorization</Marker>” Step eine{" "}
+          <Marker>Risikobewertung</Marker> des <Marker>Issuers</Marker> (Bank
+          des Customers) an.
         </p>
         <p>
           Der Issuer bewertet anhand von Faktoren wie Transaktionsvolumen, IP
-          Adresse, Gerät, etc. ob es sich um eine betrügerische Transaktion
-          handeln könnte.
+          Adresse, Gerät, etc. ob es sich um eine{" "}
+          <Marker>betrügerische Transaktion</Marker> handeln könnte.
         </p>
         <ul className="list-disc ml-6">
           <li>
             Wird die Transaktion als “kein Betrug” oder als “möglicherweise
-            Betrug” gewertet, wird der Kunde aufgefordert sich zu verifizieren.
+            Betrug” gewertet, wird der Kunde aufgefordert sich zu{" "}
+            <Marker>verifizieren</Marker>.
           </li>
           <li>
-            Wird die Transaktion als “Betrug” gewertet, wird die Transaktion
-            abgelehnt.
+            Wird die Transaktion als “Betrug” gewertet, wird die Transaktion{" "}
+            <Marker>abgelehnt</Marker>.
           </li>
         </ul>
         <h1 className="font-bold">3D Secure Verifizierung: </h1>
         <p>
           Falls der Kunde aufgefordert wird sich zu verifizieren, wird dieser
-          auf eine Seite des Issuers weitergeleitet.
+          auf eine <Marker>Seite des Issuers</Marker> weitergeleitet.
         </p>
         <p>
-          Dort wird der Kunde aufgefordert sich per 3D Secure zu verifizieren.
-          Diese Verifizierung kann z.B. per SMS-Tan oder Fingerabdruck in der
-          Banking App erfolgen (siehe "3D Secure" und "PSD2").
+          Dort wird der Kunde aufgefordert sich per <Marker>3D Secure</Marker>{" "}
+          zu verifizieren. Diese Verifizierung kann z.B. per SMS-Tan oder
+          Fingerabdruck in der Banking App erfolgen (siehe "3D Secure" und
+          "PSD2").
         </p>
       </div>
     );
@@ -410,7 +423,7 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       "Einschub: 3D Secure",
       <div className="flex flex-col gap-2">
         <p>
-          3D Secure ist ein Verfahren zur Authentifizierung von
+          <Marker>3D Secure</Marker> ist ein Verfahren zur Authentifizierung von
           Kreditkartenzahlungen. Es wurde von den Kreditkartenunternehmen Visa
           und Mastercard entwickelt und wird unter den Markennamen "
           <a
@@ -429,8 +442,9 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           " vertrieben.
         </p>
         <p>
-          3D Secure fügt einen zusätzlichen Verifizierungsschritt beim Bezahlen
-          mit Kreditkarte hinzu. Der Karteninhaber identifiziert sich über seine
+          3D Secure fügt einen{" "}
+          <Marker>zusätzlichen Verifizierungsschritt</Marker> beim Bezahlen mit
+          Kreditkarte hinzu. Der Karteninhaber identifiziert sich über seine
           Bank, z.B. mit einer SMS-Tan oder einem Fingerabdruck in der Banking
           App. Dies erschwert den Diebstahl und Missbrauch von
           Kreditkartendaten.
@@ -443,8 +457,9 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
         </p>
 
         <p>
-          3D Secure wird unteranderem von der PSD2 EU-Richtlinie verpflichtend
-          gemacht (siehe "PSD2").
+          3D Secure wird unteranderem von der{" "}
+          <Marker>PSD2 EU-Richtlinie</Marker> verpflichtend gemacht (siehe
+          "PSD2").
         </p>
         <img
           src={SecureVisaAndMastercardImage}
@@ -460,7 +475,7 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       "Einschub: PSD2",
       <div className="flex flex-col gap-4">
         <p>
-          Die Payment Services Directive 2 (
+          Die <Marker>Payment Services Directive 2</Marker> (
           <a
             href="https://www.bundesbank.de/de/aufgaben/unbarer-zahlungsverkehr/psd2/psd2-775434"
             target="_blank"
@@ -476,29 +491,32 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           <h1 className="font-bold">Ziele der PSD2:</h1>
           <ul className="list-disc ml-6">
             <li>
-              Erhöhung der Sicherheit von elektronischen Zahlungen und des
-              Datenschutzes
+              Erhöhung der <Marker>Sicherheit</Marker> von elektronischen
+              Zahlungen und des Datenschutzes
             </li>
             <li>
-              Förderung des Wettbewerbs durch die Öffnung des Marktes für neue
-              Zahlungsdienstleister
+              Förderung des <Marker>Wettbewerbs</Marker> durch die Öffnung des
+              Marktes für neue Zahlungsdienstleister
             </li>
-            <li>Erhöhung der Verbraucherrechte</li>
+            <li>
+              Erhöhung der <Marker>Verbraucherrechte</Marker>
+            </li>
           </ul>
         </div>
 
         <div>
           <h1 className="font-bold">Starke Kundenauthentifizierung (SCA):</h1>
           <p>
-            Durch die PSD2 wird die starke Kundenauthentifizierung (SCA)
-            verpflichtend. Das heißt, dass die Kreditkartenunternehmen Visa und
-            Mastercard die 3D Secure Verifizierung für alle Zahlungen
-            verpflichtend machen.
+            Durch die PSD2 wird die{" "}
+            <Marker>starke Kundenauthentifizierung</Marker> (SCA){" "}
+            <Marker>verpflichtend</Marker>. Das heißt, dass die
+            Kreditkartenunternehmen Visa und Mastercard die 3D Secure
+            Verifizierung für alle Zahlungen verpflichtend machen.
           </p>
           <p>
             Um eine starke Kundenauthentifizierung zu gewährleisten, muss sich
-            der Kunde bei einer Zahlung mit zwei der folgenden drei Faktoren
-            authentifizieren:
+            der Kunde bei einer Zahlung mit{" "}
+            <Marker>zwei der folgenden drei Faktoren authentifizieren</Marker>:
           </p>
           <a href={CreditCardScaIcon} target="_blank">
             <img
@@ -514,18 +532,18 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
             Kontoschnittstellen für Zahlungsdrittanbieter:
           </h1>
           <p>
-            Die PSD2 verpflichtet Banken dazu, Kontoschnittstellen für
-            Zahlungsdrittanbieter bereitzustellen. Das heißt, dass Banken
-            Schnittstellen für Drittanbieter wie z.B. Paypal, Klarna, etc.
-            bereitstellen müssen.
+            Die PSD2 verpflichtet Banken dazu,{" "}
+            <Marker>Kontoschnittstellen</Marker> für Zahlungsdrittanbieter
+            bereitzustellen. Das heißt, dass Banken Schnittstellen für
+            Drittanbieter wie z.B. Paypal, Klarna, etc. bereitstellen müssen.
           </p>
         </div>
 
         <div>
           <h1 className="font-bold">Gebühren für Kreditkartenzahlungen:</h1>
           <p>
-            Durch die PSD2 dürfen Gebühren für Kreditkartenzahlungen nicht mehr
-            auf den Kunden umgelegt werden.
+            Durch die PSD2 dürfen <Marker>Gebühren</Marker> für
+            Kreditkartenzahlungen nicht mehr auf den Kunden umgelegt werden.
           </p>
         </div>
       </div>
@@ -537,9 +555,11 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       "2. Clearing",
       <div className="flex flex-col gap-2">
         <p>
-          Im "Clearing"-Prozess erfolgt der Austausch präziser
-          Transaktionsinformationen zwischen dem Acquirer (der Bank des
-          Verkäufers) und dem Issuer (der Bank des Käufers).
+          Im "<Marker>Clearing</Marker>"-Prozess erfolgt der{" "}
+          <Marker>Austausch</Marker> präziser{" "}
+          <Marker>Transaktionsinformationen</Marker> zwischen dem{" "}
+          <Marker>Acquirer</Marker> (der Bank des Verkäufers) und dem{" "}
+          <Marker>Issuer</Marker> (der Bank des Käufers).
         </p>
         <p>
           Wenn Mastercard als Gateway fungiert, übernimmt das sogenannte Global
@@ -551,9 +571,9 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
         {renderWarning(
           <p>
             Wichtig zu beachten ist, dass in diesem Stadium des Prozesses
-            lediglich Informationen ausgetauscht werden. Die eigentlichen
-            Geldtransaktionen finden erst im nachfolgenden "Settlement"-Schritt
-            statt.
+            lediglich <Marker>Informationen ausgetauscht</Marker> werden. Die
+            eigentlichen Geldtransaktionen finden erst im nachfolgenden
+            "Settlement"-Schritt statt.
           </p>
         )}
       </div>
@@ -565,16 +585,17 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       "3. Settlement",
       <div className="flex flex-col gap-2">
         <p>
-          Das zurückgehaltene Geld wird vom Issuer (Bank des Kunden) an das
-          Konto des Verkäufers transferiert.
+          Das <Marker>zurückgehaltene Geld</Marker> wird vom{" "}
+          <Marker>Issuer</Marker> (Bank des Kunden) an das{" "}
+          <Marker>Verkäufer</Marker> Konto <Marker>transferiert</Marker>.
         </p>
         <p>
-          Die Transaktion ist nun abgeschlossen und der Verkäufer hat das Geld
-          erhalten.
+          Die Transaktion ist nun <Marker>abgeschlossen</Marker> und der
+          Verkäufer hat das Geld erhalten.
         </p>
         <p>
           Diese Transaktion wird als "Settlement" bezeichnet und meist innerhalb
-          von 2-3 Tagen durchgeführt.
+          von <Marker>2-3 Tagen</Marker> durchgeführt.
         </p>
       </div>,
       true
