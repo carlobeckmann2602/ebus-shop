@@ -45,11 +45,11 @@ function renderKonto(
   const price = 500;
   return (
     <div className="flex flex-col gap-6 justify-center w-full mt-2">
-      <div className="text-2xl">
+      <div className="text-2xl text-black dark:text-white">
         Konto des {isIncoming ? "Verkäufers" : "Käufers"}:
       </div>
       <div className="flex flex-col gap-2">
-        <div className="flex flex-col justify-between w-full bg-gray-800 px-4 py-2 rounded-md">
+        <div className="flex flex-col justify-between w-full bg-gray-800 text-gray-300 px-4 py-2 rounded-md">
           <p>Kontostand</p>
           <p className="text-white text-xl font-bold">
             {isProcessing ? balance : balance + price * (isIncoming ? 1 : -1)}
@@ -57,7 +57,7 @@ function renderKonto(
           </p>
         </div>
         <div className="flex flex-col gap-2 justify-center w-full">
-          <p className="text-white text-sm">{day}</p>
+          <p className="text-black dark:text-white text-sm">{day}</p>
           <div className="flex flex-row justify-between w-full bg-gray-800 px-4 py-2 rounded-md">
             <div>
               <p className="text-white">{otherName}</p>
@@ -74,7 +74,7 @@ function renderKonto(
             <p
               className={`text-black h-min rounded-md px-2 ${
                 isIncoming ? "bg-green-500 text-white" : "bg-red-500 text-white"
-              } ${isProcessing ? "opacity-20" : ""}`}
+              } ${isProcessing ? "opacity-40" : ""}`}
             >
               {isIncoming ? "+" : "-"}
               {price},00 €
@@ -522,9 +522,9 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
   function demoSettlement() {
     return demoWrapper(
       <div className="w-full flex flex-col gap-2">
-        {renderKonto("Anstehende Umsätze", false, true, "Kim Käufer", 0)}
+        {renderKonto("Heute", false, true, "Kim Käufer", 0)}
         <div className="flex-grow border-t mt-4 border-gray-400"></div>
-        {renderKonto("Anstehende Umsätze", false, false, "E-Bus Shop", 1300)}
+        {renderKonto("Heute", false, false, "E-Bus Shop", 1300)}
       </div>
     );
   }
