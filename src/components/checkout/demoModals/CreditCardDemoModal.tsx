@@ -250,10 +250,10 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
       <div className="flex flex-col gap-2">
         <p>
           Der <Marker>Kunde</Marker> (Customer) gibt seine{" "}
-          <Marker>Kreditkarteninformationen</Marker> auf der Website des
-          Verkäufers (Merchant) ein. Sobald der Kunde auf “Bezahlen” klickt,
-          sendet der Verkäufer die Kreditkarteninformationen an den{" "}
-          <Marker>Acquirer</Marker> (Bank des Verkäufers).
+          <Marker>Kreditkarteninformationen</Marker> auf der Website des{" "}
+          <Marker>Verkäufers</Marker> (Merchant) ein. Sobald der Kunde auf
+          “Bezahlen” klickt, sendet der Verkäufer die Kreditkarteninformationen
+          an den <Marker>Acquirer</Marker> (Bank des Verkäufers).
         </p>
         <img src={CreditCardStep1Image} alt="Credit Card Step 1" />
       </div>
