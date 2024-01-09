@@ -71,7 +71,12 @@ function renderKonto(
                 </p>
               ) : (
                 <p className="text-gray-400 text-sm">
-                  09.01.24 - {isIncoming ? "Eingehend" : "Ausgehend"}
+                  {new Date().toLocaleString("DE", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "2-digit",
+                  })}{" "}
+                  - {isIncoming ? "Eingehend" : "Ausgehend"}
                 </p>
               )}
             </div>
