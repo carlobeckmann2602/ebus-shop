@@ -340,6 +340,13 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           Fingerabdruck in der Banking App erfolgen (siehe "3D Secure" und
           "PSD2").
         </p>
+        <br />
+        {renderWarning(
+          <p>
+            Das <Marker>Guthaben</Marker> wird nach erfolgreicher 3D Secure
+            Verifizierung auf der Kreditkarte <Marker>reserviert</Marker>.
+          </p>
+        )}
       </div>
     );
   }
