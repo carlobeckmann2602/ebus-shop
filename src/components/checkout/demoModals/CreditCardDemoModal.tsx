@@ -37,6 +37,24 @@ function renderWarning(content: ReactNode) {
   );
 }
 
+function renderInfo(content: ReactNode) {
+  return (
+    <div className="bg-base-300 flex items-center gap-4 p-4 rounded-lg border-l-info border-l-8">
+      <svg
+        height="48"
+        viewBox="0 0 48 48"
+        width="48"
+        className="w-6  h-6 stroke-current shrink-0"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M0 0h48v48h-48z" fill="none" />
+        <path d="M22 34h4v-12h-4v12zm2-30c-11.05 0-20 8.95-20 20s8.95 20 20 20 20-8.95 20-20-8.95-20-20-20zm0 36c-8.82 0-16-7.18-16-16s7.18-16 16-16 16 7.18 16 16-7.18 16-16 16zm-2-22h4v-4h-4v4z" />
+      </svg>
+      <div>{content}</div>
+    </div>
+  );
+}
+
 const PRICE = 500;
 
 function renderKonto(
@@ -341,7 +359,7 @@ export default function CreditCardDemoModal(props: CreditCardDemoModalProps) {
           "PSD2").
         </p>
         <br />
-        {renderWarning(
+        {renderInfo(
           <p>
             Das <Marker>Guthaben</Marker> wird nach erfolgreicher 3D Secure
             Verifizierung auf der Kreditkarte <Marker>reserviert</Marker>.
